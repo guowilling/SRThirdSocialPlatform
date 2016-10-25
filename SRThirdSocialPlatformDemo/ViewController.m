@@ -7,7 +7,6 @@
 //
 
 #import "ViewController.h"
-#import "SRAuthManager.h"
 #import "WXTableViewController.h"
 #import "WBTableViewController.h"
 #import "QQTableViewController.h"

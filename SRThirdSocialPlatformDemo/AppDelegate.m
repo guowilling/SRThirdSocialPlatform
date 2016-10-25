@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "SRAuthManager.h"
+#import "SRThirdSocialManager.h"
 
 @interface AppDelegate ()
 
@@ -19,7 +19,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    [SRAuthManager registerApp];
+    [SRThirdSocialManager registerApp];
     
     return YES;
 }
@@ -48,12 +48,12 @@
 
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
     
-    return [SRAuthManager handleOpenURL:url];
+    return [SRThirdSocialManager handleOpenURL:url];
 }
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
     
-    return [SRAuthManager handleOpenURL:url];
+    return [SRThirdSocialManager handleOpenURL:url];
 }
 
 @end

@@ -7,7 +7,7 @@
 //
 
 #import "WBTableViewController.h"
-#import "SRAuthManager.h"
+#import "SRThirdSocialManager.h"
 
 @interface WBTableViewController ()
 
@@ -96,41 +96,41 @@
         switch (indexPath.row) {
             case 0:
             {
-                if ([SRAuthManager isAppInstalled:SRAuthTypeWeixin]) {
-                    [SRAuthManager authRequest:SRAuthTypeWeibo
-                                   authSuccess:^(NSString *openID, NSString *unionID) {
-                                       self.error = nil;
-                                       self.openID = openID;
-                                       self.unionID = unionID;
-                                       [self.tableView reloadData];
-                                   } authError:^(NSError *error) {
-                                       self.error = error.domain;
-                                       self.openID = nil;
-                                       self.unionID = nil;
-                                       [self.tableView reloadData];
-                                   }];
+                if ([SRThirdSocialManager isAppInstalled:SRThirdSocialWB]) {
+                    [SRThirdSocialManager authRequest:SRThirdSocialWB
+                                          authSuccess:^(NSString *openID, NSString *unionID) {
+                                              self.error = nil;
+                                              self.openID = openID;
+                                              self.unionID = unionID;
+                                              [self.tableView reloadData];
+                                          } authError:^(NSError *error) {
+                                              self.error = error.domain;
+                                              self.openID = nil;
+                                              self.unionID = nil;
+                                              [self.tableView reloadData];
+                                          }];
                 }
                 break;
             }
             case 1:
             {
-                if ([SRAuthManager isAppInstalled:SRAuthTypeWeixin]) {
-                    [SRAuthManager loginRequest:SRAuthTypeWeibo
-                                   loginSuccess:^(NSString *openID, NSString *unionID, NSString *userNickname, NSString *userAvatarURL) {
-                                       self.error = nil;
-                                       self.openID = openID;
-                                       self.unionID = unionID;
-                                       self.nickname = userNickname;
-                                       self.avatarURL = userAvatarURL;
-                                       [self.tableView reloadData];
-                                   } loginError:^(NSError *error) {
-                                       self.error = error.domain;
-                                       self.openID = nil;
-                                       self.unionID = nil;
-                                       self.nickname = nil;
-                                       self.avatarURL = nil;
-                                       [self.tableView reloadData];
-                                   }];
+                if ([SRThirdSocialManager isAppInstalled:SRThirdSocialWB]) {
+                    [SRThirdSocialManager loginRequest:SRThirdSocialWB
+                                          loginSuccess:^(NSString *openID, NSString *unionID, NSString *userNickname, NSString *userAvatarURL) {
+                                              self.error = nil;
+                                              self.openID = openID;
+                                              self.unionID = unionID;
+                                              self.nickname = userNickname;
+                                              self.avatarURL = userAvatarURL;
+                                              [self.tableView reloadData];
+                                          } loginError:^(NSError *error) {
+                                              self.error = error.domain;
+                                              self.openID = nil;
+                                              self.unionID = nil;
+                                              self.nickname = nil;
+                                              self.avatarURL = nil;
+                                              [self.tableView reloadData];
+                                          }];
                 }
                 break;
             }

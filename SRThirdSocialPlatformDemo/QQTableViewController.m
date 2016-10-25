@@ -7,7 +7,7 @@
 //
 
 #import "QQTableViewController.h"
-#import "SRAuthManager.h"
+#import "SRThirdSocialManager.h"
 
 @interface QQTableViewController ()
 
@@ -96,8 +96,8 @@
         switch (indexPath.row) {
             case 0:
             {
-                if ([SRAuthManager isAppInstalled:SRAuthTypeWeixin]) {
-                    [SRAuthManager authRequest:SRAuthTypeQQ
+                if ([SRThirdSocialManager isAppInstalled:SRThirdSocialQQ]) {
+                    [SRThirdSocialManager authRequest:SRThirdSocialQQ
                                    authSuccess:^(NSString *openID, NSString *unionID) {
                                        self.error = nil;
                                        self.openID = openID;
@@ -114,8 +114,8 @@
             }
             case 1:
             {
-                if ([SRAuthManager isAppInstalled:SRAuthTypeWeixin]) {
-                    [SRAuthManager loginRequest:SRAuthTypeQQ
+                if ([SRThirdSocialManager isAppInstalled:SRThirdSocialQQ]) {
+                    [SRThirdSocialManager loginRequest:SRThirdSocialQQ
                                    loginSuccess:^(NSString *openID, NSString *unionID, NSString *userNickname, NSString *userAvatarURL) {
                                        self.error = nil;
                                        self.openID = openID;

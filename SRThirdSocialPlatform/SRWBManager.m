@@ -6,11 +6,11 @@
 //  Copyright © 2016年 SR. All rights reserved.
 //
 
-#import "SRWeiboManager.h"
+#import "SRWBManager.h"
 #import "WeiboSDK.h"
 #import "WeiboUser.h"
 
-@interface SRWeiboManager () <WeiboSDKDelegate>
+@interface SRWBManager () <WeiboSDKDelegate>
 
 @property (nonatomic, copy) SRAuthSuccess  authSuccess;
 @property (nonatomic, copy) SRAuthError    authError;
@@ -19,7 +19,7 @@
 
 @end
 
-@implementation SRWeiboManager
+@implementation SRWBManager
 
 + (void)registerApp {
     
@@ -35,7 +35,7 @@
 
 + (BOOL)handleOpenURL:(NSURL *)url {
     
-    return [WeiboSDK handleOpenURL:url delegate:[SRWeiboManager manager]];
+    return [WeiboSDK handleOpenURL:url delegate:[SRWBManager manager]];
 }
 
 + (instancetype)manager {
@@ -43,14 +43,14 @@
     static id manager = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        manager = [[SRWeiboManager alloc] init];
+        manager = [[SRWBManager alloc] init];
     });
     return manager;
 }
 
 + (void)authRequestWithAuthSuccess:(SRAuthSuccess)authSuccess authError:(SRAuthError)authError {
     
-    SRWeiboManager *manager = [SRWeiboManager manager];
+    SRWBManager *manager = [SRWBManager manager];
     manager.authSuccess = authSuccess;
     manager.authError = authError;
     manager.loginSuccess = nil;
@@ -64,7 +64,7 @@
 
 + (void)loginRequestWithLoginSuccess:(SRLoginSuccess)loginSuccess loginError:(SRLoginError)loginError {
     
-    SRWeiboManager *manager = [SRWeiboManager manager];
+    SRWBManager *manager = [SRWBManager manager];
     manager.authSuccess = nil;
     manager.authError = nil;
     manager.loginSuccess = loginSuccess;

@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SRAuthManager.h"
+#import "SRThirdSocialManager.h"
 
 // **SDK依赖的系统库**
 // Security.framework

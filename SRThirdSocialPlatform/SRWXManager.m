@@ -6,11 +6,11 @@
 //  Copyright © 2016年 SR. All rights reserved.
 //
 
-#import "SRWeixinManager.h"
+#import "SRWXManager.h"
 #import "WXApiObject.h"
 #import "WXApi.h"
 
-@interface SRWeixinManager () <WXApiDelegate>
+@interface SRWXManager () <WXApiDelegate>
 
 @property (nonatomic, copy) SRAuthSuccess  authSuccess;
 @property (nonatomic, copy) SRAuthError    authError;
@@ -19,7 +19,7 @@
 
 @end
 
-@implementation SRWeixinManager
+@implementation SRWXManager
 
 + (void)registerApp {
     
@@ -35,7 +35,7 @@
 
 + (BOOL)handleOpenURL:(NSURL *)url {
     
-    return [WXApi handleOpenURL:url delegate:[SRWeixinManager manager]];
+    return [WXApi handleOpenURL:url delegate:[SRWXManager manager]];
 }
 
 + (instancetype)manager {
@@ -43,14 +43,14 @@
     static id manager = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        manager = [[SRWeixinManager alloc] init];
+        manager = [[SRWXManager alloc] init];
     });
     return manager;
 }
 
 + (void)authRequestWithAuthSuccess:(SRAuthSuccess)authSuccess authError:(SRAuthError)authError {
     
-    SRWeixinManager *manager = [SRWeixinManager manager];
+    SRWXManager *manager = [SRWXManager manager];
     manager.authSuccess = authSuccess;
     manager.authError = authError;
     manager.loginSuccess = nil;
@@ -59,12 +59,12 @@
     SendAuthReq *sendAuthReq = [[SendAuthReq alloc] init];
     sendAuthReq.scope = @"snsapi_userinfo";
     sendAuthReq.state = @"413e6ad8cae81487d315780b0a6717c0";
-    [WXApi sendAuthReq:sendAuthReq viewController:nil delegate:[SRWeixinManager manager]];
+    [WXApi sendAuthReq:sendAuthReq viewController:nil delegate:[SRWXManager manager]];
 }
 
 + (void)loginRequestWithLoginSuccess:(SRLoginSuccess)loginSuccess loginError:(SRLoginError)loginError {
     
-    SRWeixinManager *manager = [SRWeixinManager manager];
+    SRWXManager *manager = [SRWXManager manager];
     manager.authSuccess = nil;
     manager.authError = nil;
     manager.loginSuccess = loginSuccess;
@@ -73,7 +73,7 @@
     SendAuthReq *sendAuthReq = [[SendAuthReq alloc] init];
     sendAuthReq.scope = @"snsapi_userinfo";
     sendAuthReq.state = @"413e6ad8cae81487d315780b0a6717c0";
-    [WXApi sendAuthReq:sendAuthReq viewController:nil delegate:[SRWeixinManager manager]];
+    [WXApi sendAuthReq:sendAuthReq viewController:nil delegate:[SRWXManager manager]];
 }
 
 #pragma mark - WXApiDelegate

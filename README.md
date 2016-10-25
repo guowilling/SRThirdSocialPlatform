@@ -5,6 +5,8 @@
 
 ![image](./show01.jpg) ![image](./show02.jpg) ![image](./show03.jpg)    
 
+## Project settings
+
 ![image](./1.依赖的系统类库.png)   
 
 ![image](./2.QueriesSchemes 设置.png)   
@@ -12,76 +14,102 @@
 ![image](./3.URL Types 设置.png)   
 
 ## Usage
+**Initialize settings**
+
+````objc
+// Firstly registerApp through SRAuthManager when your app didFinishLaunching.
+// Like this
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    // Override point for customization after application launch.
+    
+    [SRThirdSocialManager registerApp];
+    
+    return YES;
+}
+````
+
+````objc
+// Then handleOpenURL.
+// Like this
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
+    
+    return [SRThirdSocialManager handleOpenURL:url];
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    
+    return [SRThirdSocialManager handleOpenURL:url];
+}
 
 ````
-/** Weixin */
 
-// Auth
-if ([SRAuthManager isAppInstalled:SRAuthTypeWeixin]) {
-    [SRAuthManager authRequest:SRAuthTypeWeixin
-                   authSuccess:^(NSString *openID, NSString *unionID) {
-                       // Your code
-                   } authError:^(NSError *error) {
-                       // Your code
-                   }];
+**That's all settings, you can use the third social platform's auth and login features.**
+
+**Like this**
+
+````objc
+// Weixin auth
+if ([SRThirdSocialManager isAppInstalled:SRThirdSocialWX]) {
+    [SRThirdSocialManager authRequest:SRThirdSocialWX
+                          authSuccess:^(NSString *openID, NSString *unionID) {
+                              // Your code
+                          } authError:^(NSError *error) {
+                              // Your code
+                          }];
 }
     
-// Login
-if ([SRAuthManager isAppInstalled:SRAuthTypeWeixin]) {
-    [SRAuthManager loginRequest:SRAuthTypeWeixin
-                   loginSuccess:^(NSString *openID, NSString *unionID, NSString *userNickname, NSString *userAvatarURL) {
-                       // Your code
-                   } loginError:^(NSError *error) {
-                       // Your code
-                   }];
+// Weixin login
+if ([SRThirdSocialManager isAppInstalled:SRThirdSocialWX]) {
+    [SRThirdSocialManager loginRequest:SRThirdSocialWX
+                          loginSuccess:^(NSString *openID, NSString *unionID, NSString *userNickname, NSString *userAvatarURL) {
+                              // Your code
+                          } loginError:^(NSError *error) {
+                              // Your code
+                          }];
 }
 ````
 
-````
-/** Weibo */
-
-// Auth
-if ([SRAuthManager isAppInstalled:SRAuthTypeWeixin]) {
-    [SRAuthManager authRequest:SRAuthTypeWeibo
-                   authSuccess:^(NSString *openID, NSString *unionID) {
-                       // Your code
-                   } authError:^(NSError *error) {
-                       // Your code
-                   }];
+````objc
+// Weibo auth
+if ([SRThirdSocialManager isAppInstalled:SRThirdSocialWB]) {
+    [SRThirdSocialManager authRequest:SRThirdSocialWB
+                          authSuccess:^(NSString *openID, NSString *unionID) {
+                              // Your code
+                          } authError:^(NSError *error) {
+                              // Your code
+                          }];
 }
     
-// Login
-if ([SRAuthManager isAppInstalled:SRAuthTypeWeixin]) {
-    [SRAuthManager loginRequest:SRAuthTypeWeibo
-                   loginSuccess:^(NSString *openID, NSString *unionID, NSString *userNickname, NSString *userAvatarURL) {
-                       // Your code
-                   } loginError:^(NSError *error) {
-                       // Your code
-                   }];
+// Weibo login
+if ([SRThirdSocialManager isAppInstalled:SRThirdSocialWB]) {
+    [SRThirdSocialManager loginRequest:SRThirdSocialWB
+                          loginSuccess:^(NSString *openID, NSString *unionID, NSString *userNickname, NSString *userAvatarURL) {
+                              // Your code
+                          } loginError:^(NSError *error) {
+                              // Your code
+                          }];
 }
 ````
 
-````
-/** QQ */
-
-// Auth
-if ([SRAuthManager isAppInstalled:SRAuthTypeWeixin]) {
-    [SRAuthManager authRequest:SRAuthTypeQQ
-                   authSuccess:^(NSString *openID, NSString *unionID) {
-                       // Your code
-                   } authError:^(NSError *error) {
-                       // Your code
-                   }];
+````objc
+// QQ auth
+if ([SRThirdSocialManager isAppInstalled:SRThirdSocialQQ]) {
+    [SRThirdSocialManager authRequest:SRThirdSocialQQ
+                          authSuccess:^(NSString *openID, NSString *unionID) {
+                              // Your code
+                          } authError:^(NSError *error) {
+                              // Your code
+                          }];
 }
     
-// Login
-if ([SRAuthManager isAppInstalled:SRAuthTypeWeixin]) {
-    [SRAuthManager loginRequest:SRAuthTypeQQ
-                   loginSuccess:^(NSString *openID, NSString *unionID, NSString *userNickname, NSString *userAvatarURL) {
-                       // Your code
-                   } loginError:^(NSError *error) {
-                       // Your code
-                   }];
+// QQ login
+if ([SRThirdSocialManager isAppInstalled:SRThirdSocialQQ]) {
+    [SRThirdSocialManager loginRequest:SRThirdSocialQQ
+                          loginSuccess:^(NSString *openID, NSString *unionID, NSString *userNickname, NSString *userAvatarURL) {
+                              // Your code
+                          } loginError:^(NSError *error) {
+                              // Your code
+                          }];
 }
 ````
 

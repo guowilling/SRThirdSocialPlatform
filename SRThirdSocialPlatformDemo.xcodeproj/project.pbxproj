@@ -13,10 +13,10 @@
 		6880ED851D8910B3006CD167 /* WeiboSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6880ED6F1D8910B3006CD167 /* WeiboSDK.bundle */; };
 		6880ED861D8910B3006CD167 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6880ED731D8910B3006CD167 /* libWeChatSDK.a */; };
 		6880ED871D8910B3006CD167 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 6880ED741D8910B3006CD167 /* README.txt */; };
-		6880ED881D8910B3006CD167 /* SRAuthManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6880ED791D8910B3006CD167 /* SRAuthManager.m */; };
+		6880ED881D8910B3006CD167 /* SRThirdSocialManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6880ED791D8910B3006CD167 /* SRThirdSocialManager.m */; };
 		6880ED891D8910B3006CD167 /* SRQQManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6880ED7B1D8910B3006CD167 /* SRQQManager.m */; };
-		6880ED8B1D8910B3006CD167 /* SRWeiboManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6880ED7F1D8910B3006CD167 /* SRWeiboManager.m */; };
-		6880ED8C1D8910B3006CD167 /* SRWeixinManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6880ED811D8910B3006CD167 /* SRWeixinManager.m */; };
+		6880ED8B1D8910B3006CD167 /* SRWBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6880ED7F1D8910B3006CD167 /* SRWBManager.m */; };
+		6880ED8C1D8910B3006CD167 /* SRWXManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6880ED811D8910B3006CD167 /* SRWXManager.m */; };
 		6880ED8F1D891FC7006CD167 /* WXTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6880ED8E1D891FC7006CD167 /* WXTableViewController.m */; };
 		6880ED921D891FD6006CD167 /* WBTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6880ED911D891FD6006CD167 /* WBTableViewController.m */; };
 		6880ED951D891FE5006CD167 /* QQTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6880ED941D891FE5006CD167 /* QQTableViewController.m */; };
@@ -80,14 +80,14 @@
 		6880ED751D8910B3006CD167 /* WechatAuthSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WechatAuthSDK.h; sourceTree = "<group>"; };
 		6880ED761D8910B3006CD167 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
 		6880ED771D8910B3006CD167 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
-		6880ED781D8910B3006CD167 /* SRAuthManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRAuthManager.h; sourceTree = "<group>"; };
-		6880ED791D8910B3006CD167 /* SRAuthManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRAuthManager.m; sourceTree = "<group>"; };
+		6880ED781D8910B3006CD167 /* SRThirdSocialManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRThirdSocialManager.h; sourceTree = "<group>"; };
+		6880ED791D8910B3006CD167 /* SRThirdSocialManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRThirdSocialManager.m; sourceTree = "<group>"; };
 		6880ED7A1D8910B3006CD167 /* SRQQManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRQQManager.h; sourceTree = "<group>"; };
 		6880ED7B1D8910B3006CD167 /* SRQQManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRQQManager.m; sourceTree = "<group>"; };
-		6880ED7E1D8910B3006CD167 /* SRWeiboManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRWeiboManager.h; sourceTree = "<group>"; };
-		6880ED7F1D8910B3006CD167 /* SRWeiboManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRWeiboManager.m; sourceTree = "<group>"; };
-		6880ED801D8910B3006CD167 /* SRWeixinManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRWeixinManager.h; sourceTree = "<group>"; };
-		6880ED811D8910B3006CD167 /* SRWeixinManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRWeixinManager.m; sourceTree = "<group>"; };
+		6880ED7E1D8910B3006CD167 /* SRWBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRWBManager.h; sourceTree = "<group>"; };
+		6880ED7F1D8910B3006CD167 /* SRWBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRWBManager.m; sourceTree = "<group>"; };
+		6880ED801D8910B3006CD167 /* SRWXManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRWXManager.h; sourceTree = "<group>"; };
+		6880ED811D8910B3006CD167 /* SRWXManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRWXManager.m; sourceTree = "<group>"; };
 		6880ED8D1D891FC7006CD167 /* WXTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXTableViewController.h; sourceTree = "<group>"; };
 		6880ED8E1D891FC7006CD167 /* WXTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXTableViewController.m; sourceTree = "<group>"; };
 		6880ED901D891FD6006CD167 /* WBTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBTableViewController.h; sourceTree = "<group>"; };
@@ -170,12 +170,12 @@
 				6880ED611D8910B3006CD167 /* libQQSDK */,
 				6880ED641D8910B3006CD167 /* libWeiboSDK */,
 				6880ED721D8910B3006CD167 /* libWeixinSDK */,
-				6880ED781D8910B3006CD167 /* SRAuthManager.h */,
-				6880ED791D8910B3006CD167 /* SRAuthManager.m */,
-				6880ED801D8910B3006CD167 /* SRWeixinManager.h */,
-				6880ED811D8910B3006CD167 /* SRWeixinManager.m */,
-				6880ED7E1D8910B3006CD167 /* SRWeiboManager.h */,
-				6880ED7F1D8910B3006CD167 /* SRWeiboManager.m */,
+				6880ED781D8910B3006CD167 /* SRThirdSocialManager.h */,
+				6880ED791D8910B3006CD167 /* SRThirdSocialManager.m */,
+				6880ED801D8910B3006CD167 /* SRWXManager.h */,
+				6880ED7E1D8910B3006CD167 /* SRWBManager.h */,
+				6880ED811D8910B3006CD167 /* SRWXManager.m */,
+				6880ED7F1D8910B3006CD167 /* SRWBManager.m */,
 				6880ED7A1D8910B3006CD167 /* SRQQManager.h */,
 				6880ED7B1D8910B3006CD167 /* SRQQManager.m */,
 			);
@@ -447,14 +447,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6880ED8C1D8910B3006CD167 /* SRWeixinManager.m in Sources */,
-				6880ED881D8910B3006CD167 /* SRAuthManager.m in Sources */,
+				6880ED8C1D8910B3006CD167 /* SRWXManager.m in Sources */,
+				6880ED881D8910B3006CD167 /* SRThirdSocialManager.m in Sources */,
 				68AB96ED1D76B96A00D86294 /* ViewController.m in Sources */,
 				6880ED8F1D891FC7006CD167 /* WXTableViewController.m in Sources */,
 				68AB96EA1D76B96A00D86294 /* AppDelegate.m in Sources */,
 				6880ED951D891FE5006CD167 /* QQTableViewController.m in Sources */,
 				6880ED921D891FD6006CD167 /* WBTableViewController.m in Sources */,
-				6880ED8B1D8910B3006CD167 /* SRWeiboManager.m in Sources */,
+				6880ED8B1D8910B3006CD167 /* SRWBManager.m in Sources */,
 				68AB96E71D76B96A00D86294 /* main.m in Sources */,
 				6880ED891D8910B3006CD167 /* SRQQManager.m in Sources */,
 			);

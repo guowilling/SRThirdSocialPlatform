@@ -1,5 +1,5 @@
 //
-//  SRWeixinManager.h
+//  SRWeiboManager.h
 //  SRThirdSocialPlatformDemo
 //
 //  Created by 郭伟林 on 16/9/14.
@@ -7,16 +7,20 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SRAuthManager.h"
+#import "SRThirdSocialManager.h"
 
 // **SDK依赖的系统库**
+// QuartzCore.framework
+// ImageIO.framework
 // SystemConfiguration.framework
-// libz.dylib
-// libsqlite3.0.dylib
-// libc++.dylib
+// Security.framework
 // CoreTelephony.framework
+// CoreText.framework
+// UIKit.framework
+// Foundation.framework
+// CoreGraphics.framework
 
-@interface SRWeixinManager : NSObject
+@interface SRWBManager : NSObject
 
 + (void)registerApp;
 
