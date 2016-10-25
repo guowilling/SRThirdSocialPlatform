@@ -103,13 +103,12 @@
                                        self.openID = openID;
                                        self.unionID = unionID;
                                        [self.tableView reloadData];
-                                   }
-                                     authError:^(NSError *error) {
-                                         self.error = error.domain;
-                                         self.openID = nil;
-                                         self.unionID = nil;
-                                         [self.tableView reloadData];
-                                     }];
+                                   } authError:^(NSError *error) {
+                                       self.error = error.domain;
+                                       self.openID = nil;
+                                       self.unionID = nil;
+                                       [self.tableView reloadData];
+                                   }];
                 }
                 break;
             }
@@ -124,15 +123,14 @@
                                        self.nickname = userNickname;
                                        self.avatarURL = userAvatarURL;
                                        [self.tableView reloadData];
-                                   }
-                                     loginError:^(NSError *error) {
-                                         self.error = error.domain;
-                                         self.openID = nil;
-                                         self.unionID = nil;
-                                         self.nickname = nil;
-                                         self.avatarURL = nil;
-                                         [self.tableView reloadData];
-                                     }];
+                                   } loginError:^(NSError *error) {
+                                       self.error = error.domain;
+                                       self.openID = nil;
+                                       self.unionID = nil;
+                                       self.nickname = nil;
+                                       self.avatarURL = nil;
+                                       [self.tableView reloadData];
+                                   }];
                 }
                 break;
             }

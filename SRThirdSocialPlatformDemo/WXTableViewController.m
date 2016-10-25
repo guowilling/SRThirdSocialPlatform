@@ -99,17 +99,18 @@
                 if ([SRAuthManager isAppInstalled:SRAuthTypeWeixin]) {
                     [SRAuthManager authRequest:SRAuthTypeWeixin
                                    authSuccess:^(NSString *openID, NSString *unionID) {
+                                       // Your code
                                        self.error = nil;
                                        self.openID = openID;
                                        self.unionID = unionID;
                                        [self.tableView reloadData];
-                                   }
-                                     authError:^(NSError *error) {
-                                         self.error = error.domain;
-                                         self.openID = nil;
-                                         self.unionID = nil;
-                                         [self.tableView reloadData];
-                                     }];
+                                   } authError:^(NSError *error) {
+                                       // Your code
+                                       self.error = error.domain;
+                                       self.openID = nil;
+                                       self.unionID = nil;
+                                       [self.tableView reloadData];
+                                   }];
                 }
                 break;
             }
@@ -124,18 +125,37 @@
                                        self.nickname = userNickname;
                                        self.avatarURL = userAvatarURL;
                                        [self.tableView reloadData];
-                                   }
-                                     loginError:^(NSError *error) {
-                                         self.error = error.domain;
-                                         self.openID = nil;
-                                         self.unionID = nil;
-                                         self.nickname = nil;
-                                         self.avatarURL = nil;
-                                         [self.tableView reloadData];
-                                     }];
+                                   } loginError:^(NSError *error) {
+                                       self.error = error.domain;
+                                       self.openID = nil;
+                                       self.unionID = nil;
+                                       self.nickname = nil;
+                                       self.avatarURL = nil;
+                                       [self.tableView reloadData];
+                                   }];
                 }
                 break;
             }
+                
+                // Auth
+                if ([SRAuthManager isAppInstalled:SRAuthTypeWeixin]) {
+                    [SRAuthManager authRequest:SRAuthTypeWeixin
+                                   authSuccess:^(NSString *openID, NSString *unionID) {
+                                       // Your code
+                                   } authError:^(NSError *error) {
+                                       // Your code
+                                   }];
+                }
+                
+                // Login
+                if ([SRAuthManager isAppInstalled:SRAuthTypeWeixin]) {
+                    [SRAuthManager loginRequest:SRAuthTypeWeixin
+                                   loginSuccess:^(NSString *openID, NSString *unionID, NSString *userNickname, NSString *userAvatarURL) {
+                                       // Your code
+                                   } loginError:^(NSError *error) {
+                                       // Your code
+                                   }];
+                }
         }
     }
 }
