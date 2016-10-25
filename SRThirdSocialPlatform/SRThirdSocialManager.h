@@ -1,5 +1,5 @@
 //
-//  SRAuthManager.h
+//  SRThirdSocialManager.h
 //  SRThirdSocialPlatformDemo
 //
 //  Created by 郭伟林 on 16/9/14.
@@ -21,7 +21,9 @@
 #import <UIKit/UIKit.h>
 
 /**
- *  更改成你们在第三方平台申请的 APP 信息
+ * 更改成你们在第三方平台申请的 APP 信息, 请不要将此 Demo 中提供的 APP 信息用于其他用途, 谢谢.
+ * 注意: 本 Demo 中微博授权不能成功, 因为 Bundle Identifier 不一致导致, 
+ *      实际使用时将项目 BID 和微博应用管理平台 BID 保持一致即可.
  */
 
 #define WX_APPKEY        @"wx537feebd640931cc"
@@ -38,11 +40,11 @@ typedef NS_OPTIONS (NSInteger, SRThirdSocialType) {
     SRThirdSocialQQ = 1 << 2,
 };
 
-typedef void (^SRAuthSuccess)(NSString *openID, NSString *unionID);
-typedef void (^SRAuthError)(NSError *error);
+typedef void (^SRThirdSocialAuthSuccess)(NSString *openID, NSString *unionID);
+typedef void (^SRThirdSocialAuthError)(NSError *error);
 
-typedef void (^SRLoginSuccess)(NSString *openID, NSString *unionID, NSString *userNickname, NSString *userAvatarURL);
-typedef void (^SRLoginError)(NSError *error);
+typedef void (^SRThirdSocialLoginSuccess)(NSString *openID, NSString *unionID, NSString *userNickname, NSString *userAvatarURL);
+typedef void (^SRThirdSocialLoginError)(NSError *error);
 
 @interface SRThirdSocialManager : NSObject
 
@@ -53,11 +55,11 @@ typedef void (^SRLoginError)(NSError *error);
 + (BOOL)handleOpenURL:(NSURL *)url;
 
 + (void)authRequest:(SRThirdSocialType)thirdSocialType
-        authSuccess:(SRAuthSuccess)authSuccess
-          authError:(SRAuthError)authError;
+        authSuccess:(SRThirdSocialAuthSuccess)authSuccess
+          authError:(SRThirdSocialAuthError)authError;
 
 + (void)loginRequest:(SRThirdSocialType)thirdSocialType
-        loginSuccess:(SRLoginSuccess)loginSuccess
-          loginError:(SRLoginError)loginError;
+        loginSuccess:(SRThirdSocialLoginSuccess)loginSuccess
+          loginError:(SRThirdSocialLoginError)loginError;
 
 @end

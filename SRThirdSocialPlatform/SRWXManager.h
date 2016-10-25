@@ -1,5 +1,5 @@
 //
-//  SRWeixinManager.h
+//  SRWXManager.h
 //  SRThirdSocialPlatformDemo
 //
 //  Created by 郭伟林 on 16/9/14.
@@ -24,8 +24,8 @@
 
 + (BOOL)handleOpenURL:(NSURL *)url;
 
-+ (void)authRequestWithAuthSuccess:(SRAuthSuccess)authSuccess authError:(SRAuthError)authError;
++ (void)authRequestWithAuthSuccess:(SRThirdSocialAuthSuccess)authSuccess authError:(SRThirdSocialAuthError)authError;
 
-+ (void)loginRequestWithLoginSuccess:(SRLoginSuccess)loginSuccess loginError:(SRLoginError)loginError;
++ (void)loginRequestWithLoginSuccess:(SRThirdSocialLoginSuccess)loginSuccess loginError:(SRThirdSocialLoginError)loginError;
 
 @end

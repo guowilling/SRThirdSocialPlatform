@@ -16,10 +16,11 @@
 
 @property (nonatomic, strong) TencentOAuth *tencentOAuth;
 
-@property (nonatomic, copy) SRAuthSuccess   authSuccess;
-@property (nonatomic, copy) SRAuthError     authError;
-@property (nonatomic, copy) SRLoginSuccess  loginSuccess;
-@property (nonatomic, copy) SRLoginError    loginError;
+@property (nonatomic, copy) SRThirdSocialAuthSuccess   authSuccess;
+@property (nonatomic, copy) SRThirdSocialAuthError     authError;
+
+@property (nonatomic, copy) SRThirdSocialLoginSuccess  loginSuccess;
+@property (nonatomic, copy) SRThirdSocialLoginError    loginError;
 
 @end
 
@@ -59,7 +60,7 @@
     return [TencentOAuth HandleOpenURL:url];
 }
 
-+ (void)authRequestWithAuthSuccess:(SRAuthSuccess)authSuccess authError:(SRAuthError)authError {
++ (void)authRequestWithAuthSuccess:(SRThirdSocialAuthSuccess)authSuccess authError:(SRThirdSocialAuthError)authError {
     
     SRQQManager *manager = [SRQQManager manager];
     manager.authSuccess = authSuccess;
@@ -69,7 +70,7 @@
     [manager.tencentOAuth authorize:@[kOPEN_PERMISSION_GET_SIMPLE_USER_INFO]];
 }
 
-+ (void)loginRequestWithLoginSuccess:(SRLoginSuccess)loginSuccess loginError:(SRLoginError)loginError {
++ (void)loginRequestWithLoginSuccess:(SRThirdSocialLoginSuccess)loginSuccess loginError:(SRThirdSocialLoginError)loginError {
     
     SRQQManager *manager = [SRQQManager manager];
     manager.authSuccess = nil;
@@ -132,16 +133,10 @@
 
 #pragma mark - QQApiInterfaceDelegate
 
-- (void)onReq:(QQBaseReq *)req {
-    
-}
+- (void)onReq:(QQBaseReq *)req { }
 
-- (void)onResp:(QQBaseResp *)resp {
-    
-}                                                                                                                                                                                             
+- (void)onResp:(QQBaseResp *)resp { }
 
-- (void)isOnlineResponse:(NSDictionary *)response {
-    
-}
+- (void)isOnlineResponse:(NSDictionary *)response { }
 
 @end

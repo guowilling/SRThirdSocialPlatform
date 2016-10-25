@@ -1,5 +1,5 @@
 //
-//  SRWeixinManager.m
+//  SRWXManager.m
 //  SRThirdSocialPlatformDemo
 //
 //  Created by 郭伟林 on 16/9/14.
@@ -12,10 +12,11 @@
 
 @interface SRWXManager () <WXApiDelegate>
 
-@property (nonatomic, copy) SRAuthSuccess  authSuccess;
-@property (nonatomic, copy) SRAuthError    authError;
-@property (nonatomic, copy) SRLoginSuccess loginSuccess;
-@property (nonatomic, copy) SRLoginError   loginError;
+@property (nonatomic, copy) SRThirdSocialAuthSuccess  authSuccess;
+@property (nonatomic, copy) SRThirdSocialAuthError    authError;
+
+@property (nonatomic, copy) SRThirdSocialLoginSuccess loginSuccess;
+@property (nonatomic, copy) SRThirdSocialLoginError   loginError;
 
 @end
 
@@ -48,7 +49,7 @@
     return manager;
 }
 
-+ (void)authRequestWithAuthSuccess:(SRAuthSuccess)authSuccess authError:(SRAuthError)authError {
++ (void)authRequestWithAuthSuccess:(SRThirdSocialAuthSuccess)authSuccess authError:(SRThirdSocialAuthError)authError {
     
     SRWXManager *manager = [SRWXManager manager];
     manager.authSuccess = authSuccess;
@@ -62,7 +63,7 @@
     [WXApi sendAuthReq:sendAuthReq viewController:nil delegate:[SRWXManager manager]];
 }
 
-+ (void)loginRequestWithLoginSuccess:(SRLoginSuccess)loginSuccess loginError:(SRLoginError)loginError {
++ (void)loginRequestWithLoginSuccess:(SRThirdSocialLoginSuccess)loginSuccess loginError:(SRThirdSocialLoginError)loginError {
     
     SRWXManager *manager = [SRWXManager manager];
     manager.authSuccess = nil;
@@ -78,9 +79,7 @@
 
 #pragma mark - WXApiDelegate
 
-- (void)onReq:(BaseReq *)req {
-    
-}
+- (void)onReq:(BaseReq *)req { }
 
 - (void)onResp:(BaseResp *)resp {
     

@@ -173,8 +173,8 @@
 				6880ED781D8910B3006CD167 /* SRThirdSocialManager.h */,
 				6880ED791D8910B3006CD167 /* SRThirdSocialManager.m */,
 				6880ED801D8910B3006CD167 /* SRWXManager.h */,
-				6880ED7E1D8910B3006CD167 /* SRWBManager.h */,
 				6880ED811D8910B3006CD167 /* SRWXManager.m */,
+				6880ED7E1D8910B3006CD167 /* SRWBManager.h */,
 				6880ED7F1D8910B3006CD167 /* SRWBManager.m */,
 				6880ED7A1D8910B3006CD167 /* SRQQManager.h */,
 				6880ED7B1D8910B3006CD167 /* SRQQManager.m */,
@@ -614,7 +614,7 @@
 					"-ObjC",
 					"-fobjc-arc",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.willing.third.social.platform;
+				PRODUCT_BUNDLE_IDENTIFIER = com.willing.thirdsocialplatform;
 				PRODUCT_NAME = SRThirdSocialPlatformDemo;
 				PROVISIONING_PROFILE = "683ffa8c-45a8-48bf-a7ea-bf16c623fd85";
 				PROVISIONING_PROFILE_SPECIFIER = PPForAll;
@@ -642,7 +642,7 @@
 					"-ObjC",
 					"-fobjc-arc",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.willing.third.social.platform;
+				PRODUCT_BUNDLE_IDENTIFIER = com.willing.thirdsocialplatform;
 				PRODUCT_NAME = SRThirdSocialPlatformDemo;
 				PROVISIONING_PROFILE = "683ffa8c-45a8-48bf-a7ea-bf16c623fd85";
 				PROVISIONING_PROFILE_SPECIFIER = PPForAll;

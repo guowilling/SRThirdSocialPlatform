@@ -27,8 +27,8 @@ typedef void (^GetTokenAndOpenidComleteBlock)(NSError *error, NSString *token, N
 
 + (BOOL)handleOpenURL:(NSURL *)url;
 
-+ (void)authRequestWithAuthSuccess:(SRAuthSuccess)authSuccess authError:(SRAuthError)authError;
++ (void)authRequestWithAuthSuccess:(SRThirdSocialAuthSuccess)authSuccess authError:(SRThirdSocialAuthError)authError;
 
-+ (void)loginRequestWithLoginSuccess:(SRLoginSuccess)loginSuccess loginError:(SRLoginError)loginError;
++ (void)loginRequestWithLoginSuccess:(SRThirdSocialLoginSuccess)loginSuccess loginError:(SRThirdSocialLoginError)loginError;
 
 @end

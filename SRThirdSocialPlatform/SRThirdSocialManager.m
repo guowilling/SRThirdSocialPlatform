@@ -1,5 +1,5 @@
 //
-//  SRAuthManager.m
+//  SRThirdSocialManager.m
 //  SRThirdSocialPlatformDemo
 //
 //  Created by 郭伟林 on 16/9/14.
@@ -57,8 +57,10 @@
     return NO;
 }
 
-+ (void)authRequest:(SRThirdSocialType)thirdSocialType authSuccess:(SRAuthSuccess)authSuccess authError:(SRAuthError)authError {
-    
++ (void)authRequest:(SRThirdSocialType)thirdSocialType
+        authSuccess:(SRThirdSocialAuthSuccess)authSuccess
+          authError:(SRThirdSocialAuthError)authError
+{
     switch (thirdSocialType) {
         case SRThirdSocialWX:
         {
@@ -78,8 +80,10 @@
     }
 }
 
-+ (void)loginRequest:(SRThirdSocialType)thirdSocialType loginSuccess:(SRLoginSuccess)loginSuccess loginError:(SRLoginError)loginError {
-    
++ (void)loginRequest:(SRThirdSocialType)thirdSocialType
+        loginSuccess:(SRThirdSocialLoginSuccess)loginSuccess
+          loginError:(SRThirdSocialLoginError)loginError
+{
     switch (thirdSocialType) {
         case SRThirdSocialWX:
         {
