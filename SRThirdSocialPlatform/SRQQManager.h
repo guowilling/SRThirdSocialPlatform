@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "SRThirdSocialManager.h"
 
-// **SDK依赖的系统库**
+// QQ SDK依赖的系统库
 // Security.framework
 // libiconv.dylib
 // SystemConfiguration.framework

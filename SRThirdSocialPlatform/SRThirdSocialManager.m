@@ -57,10 +57,8 @@
     return NO;
 }
 
-+ (void)authRequest:(SRThirdSocialType)thirdSocialType
-        authSuccess:(SRThirdSocialAuthSuccess)authSuccess
-          authError:(SRThirdSocialAuthError)authError
-{
++ (void)authRequest:(SRThirdSocialType)thirdSocialType authSuccess:(SRThirdSocialAuthSuccess)authSuccess authError:(SRThirdSocialAuthError)authError {
+    
     switch (thirdSocialType) {
         case SRThirdSocialWX:
         {
@@ -80,10 +78,8 @@
     }
 }
 
-+ (void)loginRequest:(SRThirdSocialType)thirdSocialType
-        loginSuccess:(SRThirdSocialLoginSuccess)loginSuccess
-          loginError:(SRThirdSocialLoginError)loginError
-{
++ (void)loginRequest:(SRThirdSocialType)thirdSocialType loginSuccess:(SRThirdSocialLoginSuccess)loginSuccess loginError:(SRThirdSocialLoginError)loginError {
+    
     switch (thirdSocialType) {
         case SRThirdSocialWX:
         {

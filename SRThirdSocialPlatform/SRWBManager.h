@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "SRThirdSocialManager.h"
 
-// **SDK依赖的系统库**
+// 微博 SDK依赖的系统库
 // QuartzCore.framework
 // ImageIO.framework
 // SystemConfiguration.framework

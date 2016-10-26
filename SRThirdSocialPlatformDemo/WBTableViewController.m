@@ -43,8 +43,9 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                                   reuseIdentifier:nil];
     if (indexPath.section == 0) {
-        UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
         switch (indexPath.row) {
             case 0:
                 cell.textLabel.text = @"授权";
@@ -53,7 +54,6 @@
                 cell.textLabel.text = @"登录";
                 break;
         }
-        return cell;
     } else {
         UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
         switch (indexPath.row) {
@@ -71,11 +71,10 @@
                 break;
             case 4:
                 cell.textLabel.text = [NSString stringWithFormat:@"avatar: %@", self.avatarURL];
-                //cell.imageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:self.avatarURL]]];
                 break;
         }
-        return cell;
     }
+    return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {

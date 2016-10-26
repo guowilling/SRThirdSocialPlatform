@@ -26,10 +26,11 @@
     self.title = @"第三方社交平台功能";
     
     [self.view addSubview:({
-        UITableView *tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
+        UITableView *tableView = [[UITableView alloc] initWithFrame:self.view.bounds
+                                                              style:UITableViewStyleGrouped];
         tableView.dataSource = self;
         tableView.delegate = self;
-        _tableView = tableView;
+        tableView;
     })];
 }
 
@@ -40,7 +41,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                                   reuseIdentifier:nil];
     if (indexPath.row == 0) {
         cell.textLabel.text = @"微信";
     } else if (indexPath.row == 1) {

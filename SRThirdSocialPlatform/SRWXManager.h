@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "SRThirdSocialManager.h"
 
-// **SDK依赖的系统库**
+// 微信 SDK 依赖的系统库
 // SystemConfiguration.framework
 // libz.dylib
 // libsqlite3.0.dylib
