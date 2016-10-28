@@ -34,6 +34,11 @@
     return ([WeiboSDK isWeiboAppInstalled] && [WeiboSDK isCanSSOInWeiboApp]);
 }
 
++ (void)installApp {
+    
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[WeiboSDK getWeiboAppInstallUrl]]];
+}
+
 + (BOOL)handleOpenURL:(NSURL *)url {
     
     return [WeiboSDK handleOpenURL:url delegate:[SRWBManager manager]];

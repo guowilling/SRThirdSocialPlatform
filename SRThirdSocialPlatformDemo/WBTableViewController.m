@@ -55,7 +55,6 @@
                 break;
         }
     } else {
-        UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
         switch (indexPath.row) {
             case 0:
                 cell.textLabel.text = [NSString stringWithFormat:@"error: %@", self.error];

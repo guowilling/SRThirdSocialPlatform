@@ -52,6 +52,11 @@
     return NO;
 }
 
++ (void)installApp {
+    
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[QQApiInterface getQQInstallUrl]]];
+}
+
 + (BOOL)handleOpenURL:(NSURL *)url {
     
     if ([QQApiInterface handleOpenURL:url delegate:[SRQQManager manager]]) {

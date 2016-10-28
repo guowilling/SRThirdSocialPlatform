@@ -52,14 +52,12 @@ typedef void (^SRThirdSocialLoginError)(NSError *error);
 
 + (BOOL)isAppInstalled:(SRThirdSocialType)thirdSocialType;
 
++ (void)installeAPP:(SRThirdSocialType)thirdSocialType;
+
 + (BOOL)handleOpenURL:(NSURL *)url;
 
-+ (void)authRequest:(SRThirdSocialType)thirdSocialType
-        authSuccess:(SRThirdSocialAuthSuccess)authSuccess
-          authError:(SRThirdSocialAuthError)authError;
++ (void)authRequest:(SRThirdSocialType)thirdSocialType authSuccess:(SRThirdSocialAuthSuccess)authSuccess authError:(SRThirdSocialAuthError)authError;
 
-+ (void)loginRequest:(SRThirdSocialType)thirdSocialType
-        loginSuccess:(SRThirdSocialLoginSuccess)loginSuccess
-          loginError:(SRThirdSocialLoginError)loginError;
++ (void)loginRequest:(SRThirdSocialType)thirdSocialType loginSuccess:(SRThirdSocialLoginSuccess)loginSuccess loginError:(SRThirdSocialLoginError)loginError;
 
 @end

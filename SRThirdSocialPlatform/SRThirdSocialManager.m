@@ -43,6 +43,27 @@
     return result;
 }
 
++ (void)installeAPP:(SRThirdSocialType)thirdSocialType {
+    
+    switch (thirdSocialType) {
+        case SRThirdSocialWX:
+        {
+            [SRWXManager installApp];
+            break;
+        }
+        case SRThirdSocialWB:
+        {
+            [SRWBManager installApp];
+            break;
+        }
+        case SRThirdSocialQQ:
+        {
+            [SRQQManager installApp];
+            break;
+        }
+    }
+}
+
 + (BOOL)handleOpenURL:(NSURL *)url {
     
     if ([SRWXManager handleOpenURL:url]) {

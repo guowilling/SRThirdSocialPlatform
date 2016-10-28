@@ -34,6 +34,11 @@
     return [WXApi isWXAppInstalled];
 }
 
++ (void)installApp {
+    
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[WXApi getWXAppInstallUrl]]];
+}
+
 + (BOOL)handleOpenURL:(NSURL *)url {
     
     return [WXApi handleOpenURL:url delegate:[SRWXManager manager]];

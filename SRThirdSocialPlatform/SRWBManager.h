@@ -26,6 +26,8 @@
 
 + (BOOL)isAppInstalled;
 
++ (void)installApp;
+
 + (BOOL)handleOpenURL:(NSURL *)url;
 
 + (void)authRequestWithAuthSuccess:(SRThirdSocialAuthSuccess)authSuccess authError:(SRThirdSocialAuthError)authError;
