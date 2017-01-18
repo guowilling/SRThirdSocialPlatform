@@ -48,7 +48,7 @@
 **Like this**
 
 ````objc
-// Weixin auth
+// WX Auth
 if ([SRThirdSocialManager isAppInstalled:SRThirdSocialWX]) {
     [SRThirdSocialManager authRequest:SRThirdSocialWX
                           authSuccess:^(NSString *openID, NSString *unionID) {
@@ -58,7 +58,7 @@ if ([SRThirdSocialManager isAppInstalled:SRThirdSocialWX]) {
                           }];
 }
     
-// Weixin login
+// WX Login
 if ([SRThirdSocialManager isAppInstalled:SRThirdSocialWX]) {
     [SRThirdSocialManager loginRequest:SRThirdSocialWX
                           loginSuccess:^(NSString *openID, NSString *unionID, NSString *userNickname, NSString *userAvatarURL) {
@@ -70,7 +70,7 @@ if ([SRThirdSocialManager isAppInstalled:SRThirdSocialWX]) {
 ````
 
 ````objc
-// Weibo auth
+// WB Auth
 if ([SRThirdSocialManager isAppInstalled:SRThirdSocialWB]) {
     [SRThirdSocialManager authRequest:SRThirdSocialWB
                           authSuccess:^(NSString *openID, NSString *unionID) {
@@ -80,7 +80,7 @@ if ([SRThirdSocialManager isAppInstalled:SRThirdSocialWB]) {
                           }];
 }
     
-// Weibo login
+// WB Login
 if ([SRThirdSocialManager isAppInstalled:SRThirdSocialWB]) {
     [SRThirdSocialManager loginRequest:SRThirdSocialWB
                           loginSuccess:^(NSString *openID, NSString *unionID, NSString *userNickname, NSString *userAvatarURL) {
@@ -92,7 +92,7 @@ if ([SRThirdSocialManager isAppInstalled:SRThirdSocialWB]) {
 ````
 
 ````objc
-// QQ auth
+// QQ Auth
 if ([SRThirdSocialManager isAppInstalled:SRThirdSocialQQ]) {
     [SRThirdSocialManager authRequest:SRThirdSocialQQ
                           authSuccess:^(NSString *openID, NSString *unionID) {
@@ -102,7 +102,7 @@ if ([SRThirdSocialManager isAppInstalled:SRThirdSocialQQ]) {
                           }];
 }
     
-// QQ login
+// QQ Login
 if ([SRThirdSocialManager isAppInstalled:SRThirdSocialQQ]) {
     [SRThirdSocialManager loginRequest:SRThirdSocialQQ
                           loginSuccess:^(NSString *openID, NSString *unionID, NSString *userNickname, NSString *userAvatarURL) {
