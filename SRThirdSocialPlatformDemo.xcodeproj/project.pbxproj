@@ -26,8 +26,6 @@
 		68AB96F01D76B96A00D86294 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68AB96EE1D76B96A00D86294 /* Main.storyboard */; };
 		68AB96F21D76B96A00D86294 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68AB96F11D76B96A00D86294 /* Assets.xcassets */; };
 		68AB96F51D76B96A00D86294 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68AB96F31D76B96A00D86294 /* LaunchScreen.storyboard */; };
-		68AB97001D76B96B00D86294 /* SRThirdSocialPlatformDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 68AB96FF1D76B96B00D86294 /* SRThirdSocialPlatformDemoTests.m */; };
-		68AB970B1D76B96B00D86294 /* SRThirdSocialPlatformDemoTestsUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 68AB970A1D76B96B00D86294 /* SRThirdSocialPlatformDemoTestsUITests.m */; };
 		68AB97211D76BA1100D86294 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68AB97201D76BA1100D86294 /* SystemConfiguration.framework */; };
 		68AB97231D76BA6C00D86294 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 68AB97221D76BA6C00D86294 /* libz.tbd */; };
 		68AB97251D76BA7C00D86294 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 68AB97241D76BA7C00D86294 /* libsqlite3.0.tbd */; };
@@ -41,23 +39,6 @@
 		68AB97591D76DD5600D86294 /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 68AB97581D76DD5600D86294 /* libiconv.tbd */; };
 		68AB975E1D76DF5600D86294 /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 68AB975D1D76DF5600D86294 /* libstdc++.tbd */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		68AB96FC1D76B96B00D86294 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 68AB96DA1D76B96A00D86294 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 68AB96E11D76B96A00D86294;
-			remoteInfo = "微信微博QQ授权登录分享";
-		};
-		68AB97071D76B96B00D86294 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 68AB96DA1D76B96A00D86294 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 68AB96E11D76B96A00D86294;
-			remoteInfo = "微信微博QQ授权登录分享";
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		6880ED621D8910B3006CD167 /* TencentOpenAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TencentOpenAPI.framework; sourceTree = "<group>"; };
@@ -104,12 +85,6 @@
 		68AB96F11D76B96A00D86294 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		68AB96F41D76B96A00D86294 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		68AB96F61D76B96B00D86294 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		68AB96FB1D76B96B00D86294 /* SRThirdSocialPlatformDemo.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SRThirdSocialPlatformDemo.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		68AB96FF1D76B96B00D86294 /* SRThirdSocialPlatformDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRThirdSocialPlatformDemoTests.m; sourceTree = "<group>"; };
-		68AB97011D76B96B00D86294 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		68AB97061D76B96B00D86294 /* SRThirdSocialPlatformDemo.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SRThirdSocialPlatformDemo.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		68AB970A1D76B96B00D86294 /* SRThirdSocialPlatformDemoTestsUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRThirdSocialPlatformDemoTestsUITests.m; sourceTree = "<group>"; };
-		68AB970C1D76B96B00D86294 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		68AB97201D76BA1100D86294 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		68AB97221D76BA6C00D86294 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		68AB97241D76BA7C00D86294 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
@@ -144,20 +119,6 @@
 				68AB97231D76BA6C00D86294 /* libz.tbd in Frameworks */,
 				68AB97211D76BA1100D86294 /* SystemConfiguration.framework in Frameworks */,
 				6880ED861D8910B3006CD167 /* libWeChatSDK.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		68AB96F81D76B96B00D86294 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		68AB97031D76B96B00D86294 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -248,8 +209,6 @@
 				688BED9F1D8560C900664973 /* RelatedLibs */,
 				6880ED601D8910B3006CD167 /* SRThirdSocialPlatform */,
 				68AB96E41D76B96A00D86294 /* SRThirdSocialPlatformDemo */,
-				68AB96FE1D76B96B00D86294 /* SRThirdSocialPlatformDemoTests */,
-				68AB97091D76B96B00D86294 /* SRThirdSocialPlatformDemoUITests */,
 				68AB96E31D76B96A00D86294 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -258,8 +217,6 @@
 			isa = PBXGroup;
 			children = (
 				68AB96E21D76B96A00D86294 /* SRThirdSocialPlatformDemo.app */,
-				68AB96FB1D76B96B00D86294 /* SRThirdSocialPlatformDemo.xctest */,
-				68AB97061D76B96B00D86294 /* SRThirdSocialPlatformDemo.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -275,10 +232,6 @@
 				6880ED941D891FE5006CD167 /* QQTableViewController.m */,
 				68AB96EB1D76B96A00D86294 /* ViewController.h */,
 				68AB96EC1D76B96A00D86294 /* ViewController.m */,
-				68AB96EE1D76B96A00D86294 /* Main.storyboard */,
-				68AB96F11D76B96A00D86294 /* Assets.xcassets */,
-				68AB96F31D76B96A00D86294 /* LaunchScreen.storyboard */,
-				68AB96F61D76B96B00D86294 /* Info.plist */,
 				68AB96E51D76B96A00D86294 /* Supporting Files */,
 			);
 			path = SRThirdSocialPlatformDemo;
@@ -290,26 +243,12 @@
 				68AB96E61D76B96A00D86294 /* main.m */,
 				68AB96E81D76B96A00D86294 /* AppDelegate.h */,
 				68AB96E91D76B96A00D86294 /* AppDelegate.m */,
+				68AB96EE1D76B96A00D86294 /* Main.storyboard */,
+				68AB96F11D76B96A00D86294 /* Assets.xcassets */,
+				68AB96F31D76B96A00D86294 /* LaunchScreen.storyboard */,
+				68AB96F61D76B96B00D86294 /* Info.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		68AB96FE1D76B96B00D86294 /* SRThirdSocialPlatformDemoTests */ = {
-			isa = PBXGroup;
-			children = (
-				68AB96FF1D76B96B00D86294 /* SRThirdSocialPlatformDemoTests.m */,
-				68AB97011D76B96B00D86294 /* Info.plist */,
-			);
-			path = SRThirdSocialPlatformDemoTests;
-			sourceTree = "<group>";
-		};
-		68AB97091D76B96B00D86294 /* SRThirdSocialPlatformDemoUITests */ = {
-			isa = PBXGroup;
-			children = (
-				68AB970A1D76B96B00D86294 /* SRThirdSocialPlatformDemoTestsUITests.m */,
-				68AB970C1D76B96B00D86294 /* Info.plist */,
-			);
-			path = SRThirdSocialPlatformDemoUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -332,42 +271,6 @@
 			productReference = 68AB96E21D76B96A00D86294 /* SRThirdSocialPlatformDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
-		68AB96FA1D76B96B00D86294 /* SRThirdSocialPlatformDemoTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 68AB97121D76B96B00D86294 /* Build configuration list for PBXNativeTarget "SRThirdSocialPlatformDemoTests" */;
-			buildPhases = (
-				68AB96F71D76B96B00D86294 /* Sources */,
-				68AB96F81D76B96B00D86294 /* Frameworks */,
-				68AB96F91D76B96B00D86294 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				68AB96FD1D76B96B00D86294 /* PBXTargetDependency */,
-			);
-			name = SRThirdSocialPlatformDemoTests;
-			productName = "微信微博QQ授权登录分享Tests";
-			productReference = 68AB96FB1D76B96B00D86294 /* SRThirdSocialPlatformDemo.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		68AB97051D76B96B00D86294 /* SRThirdSocialPlatformDemoUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 68AB97151D76B96B00D86294 /* Build configuration list for PBXNativeTarget "SRThirdSocialPlatformDemoUITests" */;
-			buildPhases = (
-				68AB97021D76B96B00D86294 /* Sources */,
-				68AB97031D76B96B00D86294 /* Frameworks */,
-				68AB97041D76B96B00D86294 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				68AB97081D76B96B00D86294 /* PBXTargetDependency */,
-			);
-			name = SRThirdSocialPlatformDemoUITests;
-			productName = "微信微博QQ授权登录分享UITests";
-			productReference = 68AB97061D76B96B00D86294 /* SRThirdSocialPlatformDemo.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -381,14 +284,6 @@
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = Y4FK8UXDXW;
 						ProvisioningStyle = Manual;
-					};
-					68AB96FA1D76B96B00D86294 = {
-						CreatedOnToolsVersion = 7.3;
-						TestTargetID = 68AB96E11D76B96A00D86294;
-					};
-					68AB97051D76B96B00D86294 = {
-						CreatedOnToolsVersion = 7.3;
-						TestTargetID = 68AB96E11D76B96A00D86294;
 					};
 				};
 			};
@@ -406,8 +301,6 @@
 			projectRoot = "";
 			targets = (
 				68AB96E11D76B96A00D86294 /* SRThirdSocialPlatformDemo */,
-				68AB96FA1D76B96B00D86294 /* SRThirdSocialPlatformDemoTests */,
-				68AB97051D76B96B00D86294 /* SRThirdSocialPlatformDemoUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -423,20 +316,6 @@
 				68AB96F01D76B96A00D86294 /* Main.storyboard in Resources */,
 				6880ED871D8910B3006CD167 /* README.txt in Resources */,
 				6880ED851D8910B3006CD167 /* WeiboSDK.bundle in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		68AB96F91D76B96B00D86294 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		68AB97041D76B96B00D86294 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -460,36 +339,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		68AB96F71D76B96B00D86294 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				68AB97001D76B96B00D86294 /* SRThirdSocialPlatformDemoTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		68AB97021D76B96B00D86294 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				68AB970B1D76B96B00D86294 /* SRThirdSocialPlatformDemoTestsUITests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		68AB96FD1D76B96B00D86294 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 68AB96E11D76B96A00D86294 /* SRThirdSocialPlatformDemo */;
-			targetProxy = 68AB96FC1D76B96B00D86294 /* PBXContainerItemProxy */;
-		};
-		68AB97081D76B96B00D86294 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 68AB96E11D76B96A00D86294 /* SRThirdSocialPlatformDemo */;
-			targetProxy = 68AB97071D76B96B00D86294 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		68AB96EE1D76B96A00D86294 /* Main.storyboard */ = {
@@ -649,52 +499,6 @@
 			};
 			name = Release;
 		};
-		68AB97131D76B96B00D86294 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = SRThirdSocialPlatformDemoTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.willing.----QQ------Tests";
-				PRODUCT_NAME = SRThirdSocialPlatformDemo;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SRThirdSocialPlatformDemo.app/SRThirdSocialPlatformDemo";
-			};
-			name = Debug;
-		};
-		68AB97141D76B96B00D86294 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = SRThirdSocialPlatformDemoTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.willing.----QQ------Tests";
-				PRODUCT_NAME = SRThirdSocialPlatformDemo;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SRThirdSocialPlatformDemo.app/SRThirdSocialPlatformDemo";
-			};
-			name = Release;
-		};
-		68AB97161D76B96B00D86294 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = SRThirdSocialPlatformDemoUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.willing.----QQ------UITests";
-				PRODUCT_NAME = SRThirdSocialPlatformDemo;
-				TEST_TARGET_NAME = SRThirdSocialPlatformDemo;
-			};
-			name = Debug;
-		};
-		68AB97171D76B96B00D86294 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = SRThirdSocialPlatformDemoUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.willing.----QQ------UITests";
-				PRODUCT_NAME = SRThirdSocialPlatformDemo;
-				TEST_TARGET_NAME = SRThirdSocialPlatformDemo;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -712,24 +516,6 @@
 			buildConfigurations = (
 				68AB97101D76B96B00D86294 /* Debug */,
 				68AB97111D76B96B00D86294 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		68AB97121D76B96B00D86294 /* Build configuration list for PBXNativeTarget "SRThirdSocialPlatformDemoTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				68AB97131D76B96B00D86294 /* Debug */,
-				68AB97141D76B96B00D86294 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		68AB97151D76B96B00D86294 /* Build configuration list for PBXNativeTarget "SRThirdSocialPlatformDemoUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				68AB97161D76B96B00D86294 /* Debug */,
-				68AB97171D76B96B00D86294 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

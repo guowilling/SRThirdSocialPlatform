@@ -1,9 +1,9 @@
 # SRThirdSocialPlatform
 
-* **封装微信, 微博, QQ 第三方社交平台的登录授权功能, 通过 Block 的方式回调授权登录结果, 使用简单方便.**
-* **实际项目开发中, 客户端只需拿到第三方平台的 code 或 token 即可, 所以可根据不同的业务需求, 自行修改代码.**
+* 封装微信, 微博, QQ 第三方社交平台的登录授权功能, 通过 Block 的方式回调授权登录结果, 使用简单方便.
+* 实际项目开发中, 客户端只需拿到第三方平台的 code 或 token 即可, 所以可根据不同的业务需求, 自行修改代码.
 
-![image](./show01.jpg) ![image](./show02.jpg) ![image](./show03.jpg)    
+![image](./screenshot1.jpg) ![image](./screenshot2.jpg) ![image](./screenshot3.jpg)    
 
 ## Project settings
 
@@ -13,39 +13,47 @@
 
 ![image](./3.URL Types 设置.png)   
 
-## Usage
-**Initialize settings**
+## APIs
 
 ````objc
-// Firstly registerApp through SRAuthManager when your app didFinishLaunching.
-// Like this
++ (void)registerApp;
+
++ (BOOL)isAppInstalled:(SRThirdSocialType)thirdSocialType;
+
++ (void)installeAPP:(SRThirdSocialType)thirdSocialType;
+
++ (BOOL)handleOpenURL:(NSURL *)url;
+
++ (void)authRequest:(SRThirdSocialType)thirdSocialType authSuccess:(SRThirdSocialAuthSuccess)authSuccess authError:(SRThirdSocialAuthError)authError;
+
++ (void)loginRequest:(SRThirdSocialType)thirdSocialType loginSuccess:(SRThirdSocialLoginSuccess)loginSuccess loginError:(SRThirdSocialLoginError)loginError;
+````
+
+## Usage
+
+````objc
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    [SRThirdSocialManager registerApp];
+    [SRThirdSocialManager registerApp]; // registerApp through SRAuthManager when your app didFinishLaunching
     
     return YES;
 }
 ````
 
 ````objc
-// Then handleOpenURL.
-// Like this
+
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
     
-    return [SRThirdSocialManager handleOpenURL:url];
+    return [SRThirdSocialManager handleOpenURL:url]; // handleOpenURL
 }
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
     
-    return [SRThirdSocialManager handleOpenURL:url];
+    return [SRThirdSocialManager handleOpenURL:url]; // handleOpenURL
 }
-
 ````
-
-**That's all settings, you can use the third social platform's auth and login features.**
-
-**Like this**
 
 ````objc
 // WX Auth
@@ -112,11 +120,3 @@ if ([SRThirdSocialManager isAppInstalled:SRThirdSocialQQ]) {
                           }];
 }
 ````
-
-**More information please see the source code.**   
-
-**If you have any question, please issue or contact me.**   
-
-**If you like it, please star me, thanks a lot.**
-
-**Have Fun.**
