@@ -9,9 +9,9 @@
 
 ![image](./1.依赖的系统类库.png)   
 
-![image](./2.QueriesSchemes 设置.png)   
+![image](./2.QueriesSchemes_设置.png)   
 
-![image](./3.URL Types 设置.png)   
+![image](./3.URL_Types_设置.png)   
 
 ## APIs
 
