@@ -244,8 +244,8 @@
 				68AB96E81D76B96A00D86294 /* AppDelegate.h */,
 				68AB96E91D76B96A00D86294 /* AppDelegate.m */,
 				68AB96EE1D76B96A00D86294 /* Main.storyboard */,
-				68AB96F11D76B96A00D86294 /* Assets.xcassets */,
 				68AB96F31D76B96A00D86294 /* LaunchScreen.storyboard */,
+				68AB96F11D76B96A00D86294 /* Assets.xcassets */,
 				68AB96F61D76B96B00D86294 /* Info.plist */,
 			);
 			name = "Supporting Files";

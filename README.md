@@ -1,9 +1,12 @@
 # SRThirdSocialPlatform
 
-* 封装微信, 微博, QQ 第三方社交平台的登录授权功能, 通过 Block 的方式回调授权登录结果, 使用简单方便.
-* 实际项目开发中, 客户端只需拿到第三方平台的 code 或 token 即可, 所以可根据不同的业务需求, 自行修改代码.
+封装微信, 微博, QQ 第三方社交平台的登录授权功能, 通过 Block 的方式回调授权登录结果, 使用简单方便. 实际项目开发中, 客户端只需拿到第三方平台的 code 或 token 即可, 所以可根据不同的业务需求, 自行修改代码.
 
-![image](./screenshot1.jpg) ![image](./screenshot2.jpg) ![image](./screenshot3.jpg)    
+## Screenshots
+
+![image](./screenshots1.jpg)
+
+![image](./screenshots2.jpg) ![image](./screenshots3.jpg)    
 
 ## Project settings
 
@@ -13,7 +16,7 @@
 
 ![image](./3.URL_Types_设置.png)   
 
-## APIs
+## Usage
 
 ````objc
 + (void)registerApp;
@@ -28,8 +31,6 @@
 
 + (void)loginRequest:(SRThirdSocialType)thirdSocialType loginSuccess:(SRThirdSocialLoginSuccess)loginSuccess loginError:(SRThirdSocialLoginError)loginError;
 ````
-
-## Usage
 
 ````objc
 
