@@ -4,11 +4,9 @@
 
 ## Screenshots
 
-![image](./screenshots1.jpg)
+![image](./screenshots1.jpg) ![image](./screenshots2.jpg) ![image](./screenshots3.jpg)
 
-![image](./screenshots2.jpg) ![image](./screenshots3.jpg)    
-
-## Project settings
+## Project Settings
 
 ![image](./1.依赖的系统类库.png)   
 
@@ -16,7 +14,7 @@
 
 ![image](./3.URL_Types_设置.png)   
 
-## Usage
+## APIs
 
 ````objc
 + (void)registerApp;
@@ -32,8 +30,9 @@
 + (void)loginRequest:(SRThirdSocialType)thirdSocialType loginSuccess:(SRThirdSocialLoginSuccess)loginSuccess loginError:(SRThirdSocialLoginError)loginError;
 ````
 
-````objc
+## Usage
 
+````objc
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
@@ -44,7 +43,6 @@
 ````
 
 ````objc
-
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
     
     return [SRThirdSocialManager handleOpenURL:url]; // handleOpenURL
