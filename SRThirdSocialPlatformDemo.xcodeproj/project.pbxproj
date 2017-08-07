@@ -104,20 +104,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				68AB975E1D76DF5600D86294 /* libstdc++.tbd in Frameworks */,
-				68AB97591D76DD5600D86294 /* libiconv.tbd in Frameworks */,
 				68AB974F1D76CF1700D86294 /* CoreGraphics.framework in Frameworks */,
-				6880ED841D8910B3006CD167 /* libWeiboSDK.a in Frameworks */,
 				68AB974D1D76CF0F00D86294 /* CoreText.framework in Frameworks */,
 				6880ED821D8910B3006CD167 /* TencentOpenAPI.framework in Frameworks */,
 				68AB974B1D76CF0200D86294 /* Security.framework in Frameworks */,
 				68AB97491D76CEF200D86294 /* ImageIO.framework in Frameworks */,
 				68AB97471D76CEEB00D86294 /* QuartzCore.framework in Frameworks */,
 				68AB97321D76BDAB00D86294 /* CoreTelephony.framework in Frameworks */,
+				68AB97211D76BA1100D86294 /* SystemConfiguration.framework in Frameworks */,
 				68AB97271D76BA8600D86294 /* libc++.tbd in Frameworks */,
 				68AB97251D76BA7C00D86294 /* libsqlite3.0.tbd in Frameworks */,
 				68AB97231D76BA6C00D86294 /* libz.tbd in Frameworks */,
-				68AB97211D76BA1100D86294 /* SystemConfiguration.framework in Frameworks */,
+				68AB975E1D76DF5600D86294 /* libstdc++.tbd in Frameworks */,
+				68AB97591D76DD5600D86294 /* libiconv.tbd in Frameworks */,
+				6880ED841D8910B3006CD167 /* libWeiboSDK.a in Frameworks */,
 				6880ED861D8910B3006CD167 /* libWeChatSDK.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -140,7 +140,8 @@
 				6880ED7A1D8910B3006CD167 /* SRQQManager.h */,
 				6880ED7B1D8910B3006CD167 /* SRQQManager.m */,
 			);
-			path = SRThirdSocialPlatform;
+			name = SRThirdSocialPlatform;
+			path = ../SRThirdSocialPlatform;
 			sourceTree = "<group>";
 		};
 		6880ED611D8910B3006CD167 /* libQQSDK */ = {
@@ -184,7 +185,7 @@
 			path = libWeixinSDK;
 			sourceTree = "<group>";
 		};
-		688BED9F1D8560C900664973 /* RelatedLibs */ = {
+		688BED9F1D8560C900664973 /* DependentSysLibs */ = {
 			isa = PBXGroup;
 			children = (
 				68AB975D1D76DF5600D86294 /* libstdc++.tbd */,
@@ -200,14 +201,13 @@
 				68AB97311D76BDAB00D86294 /* CoreTelephony.framework */,
 				68AB97201D76BA1100D86294 /* SystemConfiguration.framework */,
 			);
-			name = RelatedLibs;
+			name = DependentSysLibs;
 			sourceTree = "<group>";
 		};
 		68AB96D91D76B96A00D86294 = {
 			isa = PBXGroup;
 			children = (
-				688BED9F1D8560C900664973 /* RelatedLibs */,
-				6880ED601D8910B3006CD167 /* SRThirdSocialPlatform */,
+				688BED9F1D8560C900664973 /* DependentSysLibs */,
 				68AB96E41D76B96A00D86294 /* SRThirdSocialPlatformDemo */,
 				68AB96E31D76B96A00D86294 /* Products */,
 			);
@@ -224,6 +224,7 @@
 		68AB96E41D76B96A00D86294 /* SRThirdSocialPlatformDemo */ = {
 			isa = PBXGroup;
 			children = (
+				6880ED601D8910B3006CD167 /* SRThirdSocialPlatform */,
 				6880ED8D1D891FC7006CD167 /* WXTableViewController.h */,
 				6880ED8E1D891FC7006CD167 /* WXTableViewController.m */,
 				6880ED901D891FD6006CD167 /* WBTableViewController.h */,

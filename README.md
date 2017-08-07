@@ -4,15 +4,15 @@
 
 ## Screenshots
 
-![image](./screenshots1.jpg) ![image](./screenshots2.jpg) ![image](./screenshots3.jpg)
+![image](./Screenshots/screenshots1.jpg) ![image](./Screenshots/screenshots2.jpg) ![image](./Screenshots/screenshots3.jpg)
 
 ## Project Settings
 
-![image](./1.依赖的系统类库.png)   
+![image](./Configurations/1.依赖的系统类库.png)   
 
-![image](./2.QueriesSchemes_设置.png)   
+![image](./Configurations/2.QueriesSchemes_设置.png)   
 
-![image](./3.URL_Types_设置.png)   
+![image](./Configurations/3.URL_Types_设置.png)   
 
 ## APIs
 
