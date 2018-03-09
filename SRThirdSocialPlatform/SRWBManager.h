@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "SRThirdSocialManager.h"
 
-// 微博 SDK依赖的系统库
+// 微博 SDK 依赖的系统库
 // QuartzCore.framework
 // ImageIO.framework
 // SystemConfiguration.framework
@@ -20,6 +20,8 @@
 // Foundation.framework
 // CoreGraphics.framework
 
+typedef void (^GetTokenAndOpenIDCompletionBlock)(NSError *error, NSString *token, NSString *openID);
+
 @interface SRWBManager : NSObject
 
 + (void)registerApp;
@@ -28,10 +30,12 @@
 
 + (void)installApp;
 
-+ (BOOL)handleOpenURL:(NSURL *)url;
++ (BOOL)handleOpenURL:(NSURL *)aURL;
 
 + (void)authRequestWithAuthSuccess:(SRThirdSocialAuthSuccess)authSuccess authError:(SRThirdSocialAuthError)authError;
 
 + (void)loginRequestWithLoginSuccess:(SRThirdSocialLoginSuccess)loginSuccess loginError:(SRThirdSocialLoginError)loginError;
+
++ (void)getTokenAndOpenIDCompletion:(GetTokenAndOpenIDCompletionBlock)completion;
 
 @end

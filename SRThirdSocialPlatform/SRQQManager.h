@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "SRThirdSocialManager.h"
 
-// QQ SDK依赖的系统库
+// QQ SDK 依赖的系统库
 // Security.framework
 // libiconv.dylib
 // SystemConfiguration.framework
@@ -19,7 +19,7 @@
 // libstdc++.dylib
 // libz.dylib
 
-typedef void (^GetTokenAndOpenidComleteBlock)(NSError *error, NSString *token, NSString *openid);
+typedef void (^GetTokenAndOpenIDCompletionBlock)(NSError *error, NSString *token, NSString *openID);
 
 @interface SRQQManager : NSObject
 
@@ -27,10 +27,12 @@ typedef void (^GetTokenAndOpenidComleteBlock)(NSError *error, NSString *token, N
 
 + (void)installApp;
 
-+ (BOOL)handleOpenURL:(NSURL *)url;
++ (BOOL)handleOpenURL:(NSURL *)aURL;
 
 + (void)authRequestWithAuthSuccess:(SRThirdSocialAuthSuccess)authSuccess authError:(SRThirdSocialAuthError)authError;
 
 + (void)loginRequestWithLoginSuccess:(SRThirdSocialLoginSuccess)loginSuccess loginError:(SRThirdSocialLoginError)loginError;
+
++ (void)getTokenAndOpenIDCompletion:(GetTokenAndOpenIDCompletionBlock)completion;
 
 @end

@@ -12,40 +12,37 @@
 
 @interface SRWXManager () <WXApiDelegate>
 
-@property (nonatomic, copy) SRThirdSocialAuthSuccess  authSuccess;
-@property (nonatomic, copy) SRThirdSocialAuthError    authError;
+@property (nonatomic, copy) SRThirdSocialAuthSuccess authSuccess;
+@property (nonatomic, copy) SRThirdSocialAuthError   authError;
 
 @property (nonatomic, copy) SRThirdSocialLoginSuccess loginSuccess;
 @property (nonatomic, copy) SRThirdSocialLoginError   loginError;
+
+@property (nonatomic, copy) GetCodeCompletionBlock getCodeCompletionBlock;
 
 @end
 
 @implementation SRWXManager
 
 + (void)registerApp {
-    
     if ([WXApi registerApp:WX_APPKEY]) {
-        NSLog(@"Register Weixin success.");
+        NSLog(@"Register Weixin success");
     }
 }
 
 + (BOOL)isAppInstalled {
-    
     return [WXApi isWXAppInstalled];
 }
 
 + (void)installApp {
-    
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[WXApi getWXAppInstallUrl]]];
 }
 
-+ (BOOL)handleOpenURL:(NSURL *)url {
-    
-    return [WXApi handleOpenURL:url delegate:[SRWXManager manager]];
++ (BOOL)handleOpenURL:(NSURL *)aURL {
+    return [WXApi handleOpenURL:aURL delegate:[SRWXManager manager]];
 }
 
 + (instancetype)manager {
-    
     static id manager = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -55,13 +52,12 @@
 }
 
 + (void)authRequestWithAuthSuccess:(SRThirdSocialAuthSuccess)authSuccess authError:(SRThirdSocialAuthError)authError {
-    
     SRWXManager *manager = [SRWXManager manager];
     manager.authSuccess = authSuccess;
     manager.authError = authError;
     manager.loginSuccess = nil;
     manager.loginError = nil;
-    
+    manager.getCodeCompletionBlock = nil;
     SendAuthReq *sendAuthReq = [[SendAuthReq alloc] init];
     sendAuthReq.scope = @"snsapi_userinfo";
     sendAuthReq.state = @"413e6ad8cae81487d315780b0a6717c0";
@@ -69,13 +65,25 @@
 }
 
 + (void)loginRequestWithLoginSuccess:(SRThirdSocialLoginSuccess)loginSuccess loginError:(SRThirdSocialLoginError)loginError {
-    
     SRWXManager *manager = [SRWXManager manager];
     manager.authSuccess = nil;
     manager.authError = nil;
     manager.loginSuccess = loginSuccess;
     manager.loginError = loginError;
-    
+    manager.getCodeCompletionBlock = nil;
+    SendAuthReq *sendAuthReq = [[SendAuthReq alloc] init];
+    sendAuthReq.scope = @"snsapi_userinfo";
+    sendAuthReq.state = @"413e6ad8cae81487d315780b0a6717c0";
+    [WXApi sendAuthReq:sendAuthReq viewController:nil delegate:[SRWXManager manager]];
+}
+
++ (void)getCodeCompletion:(GetCodeCompletionBlock)completion {
+    SRWXManager *manager = [SRWXManager manager];
+    manager.authSuccess = nil;
+    manager.authError = nil;
+    manager.loginSuccess = nil;
+    manager.loginError = nil;
+    manager.getCodeCompletionBlock = completion;
     SendAuthReq *sendAuthReq = [[SendAuthReq alloc] init];
     sendAuthReq.scope = @"snsapi_userinfo";
     sendAuthReq.state = @"413e6ad8cae81487d315780b0a6717c0";
@@ -87,11 +95,14 @@
 - (void)onReq:(BaseReq *)req { }
 
 - (void)onResp:(BaseResp *)resp {
-    
     if ([resp isKindOfClass:[SendAuthResp class]]) {
         if (resp.errCode == WXSuccess) {
             SendAuthResp *authResp = (SendAuthResp *)resp;
-            [self getOpenIDWithCode:authResp.code];
+            if (self.getCodeCompletionBlock) {
+                self.getCodeCompletionBlock(nil, authResp.code);
+            } else {
+                [self getOpenIDWithCode:authResp.code];
+            }
         } else {
             if (self.authError) {
                 if (resp.errCode == WXErrCodeAuthDeny) {
@@ -99,7 +110,7 @@
                 } else if (resp.errCode == WXErrCodeUserCancel) {
                     self.authError([NSError errorWithDomain:@"微信用户取消授权" code:resp.errCode userInfo:nil]);
                 } else {
-                    self.authError([NSError errorWithDomain:@"微信授权失败" code:resp.errCode userInfo:nil]);
+                    self.authError([NSError errorWithDomain:@"微信用户授权失败" code:resp.errCode userInfo:nil]);
                 }
             }
         }
@@ -107,7 +118,6 @@
 }
 
 - (void)getOpenIDWithCode:(NSString *)code {
-    
     NSURLSession *session = [NSURLSession sharedSession];
     NSString *URLStringHeader = @"https://api.weixin.qq.com/sns/oauth2/access_token";
     NSString *URLString = [NSString stringWithFormat:@"%@?appid=%@&secret=%@&code=%@&grant_type=authorization_code", URLStringHeader, WX_APPKEY, WX_SECRET, code];
@@ -131,7 +141,6 @@
 }
 
 - (void)loginWithOpenId:(NSString *)openID token:(NSString *)token {
-    
     NSURLSession *session = [NSURLSession sharedSession];
     NSString *URLStringHeader = @"https://api.weixin.qq.com/sns/userinfo";
     NSString *URLString = [NSString stringWithFormat:@"%@?access_token=%@&openid=%@", URLStringHeader, token, openID];
@@ -152,15 +161,15 @@
                                                 if ([self occurError:responseObject]) {
                                                     return;
                                                 }
-                                                NSString *openid = responseObject[@"openid"];
-                                                NSString *unionid = responseObject[@"unionid"];
+                                                NSString *openID = responseObject[@"openid"];
+                                                NSString *unionID = responseObject[@"unionid"];
                                                 NSString *nickname = responseObject[@"nickname"];
                                                 NSString *avatarURL = responseObject[@"headimgurl"];
                                                 if (self.authSuccess) {
-                                                    self.authSuccess(openid, unionid);
+                                                    self.authSuccess(openID, unionID);
                                                 }
                                                 if (self.loginSuccess) {
-                                                    self.loginSuccess(openid, unionid, nickname, avatarURL);
+                                                    self.loginSuccess(openID, unionID, nickname, avatarURL);
                                                 }
                                             });
                                         }];
@@ -168,7 +177,6 @@
 }
 
 - (BOOL)occurError:(NSDictionary *)responseObject {
-    
     if (responseObject[@"errcode"]) {
         NSString *errmsg = responseObject[@"errmsg"];
         NSInteger errcode = [responseObject[@"errcode"] integerValue];

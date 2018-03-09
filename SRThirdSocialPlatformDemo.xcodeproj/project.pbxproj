@@ -225,14 +225,14 @@
 			isa = PBXGroup;
 			children = (
 				6880ED601D8910B3006CD167 /* SRThirdSocialPlatform */,
+				68AB96EB1D76B96A00D86294 /* ViewController.h */,
+				68AB96EC1D76B96A00D86294 /* ViewController.m */,
 				6880ED8D1D891FC7006CD167 /* WXTableViewController.h */,
 				6880ED8E1D891FC7006CD167 /* WXTableViewController.m */,
 				6880ED901D891FD6006CD167 /* WBTableViewController.h */,
 				6880ED911D891FD6006CD167 /* WBTableViewController.m */,
 				6880ED931D891FE5006CD167 /* QQTableViewController.h */,
 				6880ED941D891FE5006CD167 /* QQTableViewController.m */,
-				68AB96EB1D76B96A00D86294 /* ViewController.h */,
-				68AB96EC1D76B96A00D86294 /* ViewController.m */,
 				68AB96E51D76B96A00D86294 /* Supporting Files */,
 			);
 			path = SRThirdSocialPlatformDemo;
@@ -467,8 +467,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.willing.thirdsocialplatform;
 				PRODUCT_NAME = SRThirdSocialPlatformDemo;
-				PROVISIONING_PROFILE = "683ffa8c-45a8-48bf-a7ea-bf16c623fd85";
-				PROVISIONING_PROFILE_SPECIFIER = PPForAll;
+				PROVISIONING_PROFILE = "f3a55d34-a082-41a1-892a-f34e32cf7f46";
+				PROVISIONING_PROFILE_SPECIFIER = "PP For All";
 			};
 			name = Debug;
 		};
@@ -495,8 +495,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.willing.thirdsocialplatform;
 				PRODUCT_NAME = SRThirdSocialPlatformDemo;
-				PROVISIONING_PROFILE = "683ffa8c-45a8-48bf-a7ea-bf16c623fd85";
-				PROVISIONING_PROFILE_SPECIFIER = PPForAll;
+				PROVISIONING_PROFILE = "f3a55d34-a082-41a1-892a-f34e32cf7f46";
+				PROVISIONING_PROFILE_SPECIFIER = "PP For All";
 			};
 			name = Release;
 		};

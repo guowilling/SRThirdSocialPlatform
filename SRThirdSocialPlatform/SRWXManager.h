@@ -16,6 +16,8 @@
 // libc++.dylib
 // CoreTelephony.framework
 
+typedef void (^GetCodeCompletionBlock)(NSError *error, NSString *code);
+
 @interface SRWXManager : NSObject
 
 + (void)registerApp;
@@ -24,10 +26,12 @@
 
 + (void)installApp;
 
-+ (BOOL)handleOpenURL:(NSURL *)url;
++ (BOOL)handleOpenURL:(NSURL *)aURL;
 
 + (void)authRequestWithAuthSuccess:(SRThirdSocialAuthSuccess)authSuccess authError:(SRThirdSocialAuthError)authError;
 
 + (void)loginRequestWithLoginSuccess:(SRThirdSocialLoginSuccess)loginSuccess loginError:(SRThirdSocialLoginError)loginError;
+
++ (void)getCodeCompletion:(GetCodeCompletionBlock)completion;
 
 @end

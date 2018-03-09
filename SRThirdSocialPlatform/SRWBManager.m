@@ -12,40 +12,37 @@
 
 @interface SRWBManager () <WeiboSDKDelegate>
 
-@property (nonatomic, copy) SRThirdSocialAuthSuccess  authSuccess;
-@property (nonatomic, copy) SRThirdSocialAuthError    authError;
+@property (nonatomic, copy) SRThirdSocialAuthSuccess authSuccess;
+@property (nonatomic, copy) SRThirdSocialAuthError   authError;
 
 @property (nonatomic, copy) SRThirdSocialLoginSuccess loginSuccess;
 @property (nonatomic, copy) SRThirdSocialLoginError   loginError;
+
+@property (nonatomic, copy) GetTokenAndOpenIDCompletionBlock getTokenAndOpenIDCompletionBlock;
 
 @end
 
 @implementation SRWBManager
 
 + (void)registerApp {
-    
     if ([WeiboSDK registerApp:WB_APPKEY]) {
-        NSLog(@"Register Weibo success.");
+        NSLog(@"Register Weibo success");
     }
 }
 
 + (BOOL)isAppInstalled {
-    
     return ([WeiboSDK isWeiboAppInstalled] && [WeiboSDK isCanSSOInWeiboApp]);
 }
 
 + (void)installApp {
-    
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[WeiboSDK getWeiboAppInstallUrl]]];
 }
 
-+ (BOOL)handleOpenURL:(NSURL *)url {
-    
-    return [WeiboSDK handleOpenURL:url delegate:[SRWBManager manager]];
++ (BOOL)handleOpenURL:(NSURL *)aURL {
+    return [WeiboSDK handleOpenURL:aURL delegate:[SRWBManager manager]];
 }
 
 + (instancetype)manager {
-    
     static id manager = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -55,29 +52,40 @@
 }
 
 + (void)authRequestWithAuthSuccess:(SRThirdSocialAuthSuccess)authSuccess authError:(SRThirdSocialAuthError)authError {
-    
     SRWBManager *manager = [SRWBManager manager];
     manager.authSuccess = authSuccess;
     manager.authError = authError;
     manager.loginSuccess = nil;
     manager.loginError = nil;
-    
+    manager.getTokenAndOpenIDCompletionBlock = nil;
     WBAuthorizeRequest *request = [WBAuthorizeRequest request];
-    request.redirectURI = WB_RedirectURL;
+    request.redirectURI = WB_RedirectURI;
     request.scope = @"all";
     [WeiboSDK sendRequest:request];
 }
 
 + (void)loginRequestWithLoginSuccess:(SRThirdSocialLoginSuccess)loginSuccess loginError:(SRThirdSocialLoginError)loginError {
-    
     SRWBManager *manager = [SRWBManager manager];
     manager.authSuccess = nil;
     manager.authError = nil;
     manager.loginSuccess = loginSuccess;
     manager.loginError = loginError;
-    
+    manager.getTokenAndOpenIDCompletionBlock = nil;
     WBAuthorizeRequest *request = [WBAuthorizeRequest request];
-    request.redirectURI = WB_RedirectURL;
+    request.redirectURI = WB_RedirectURI;
+    request.scope = @"all";
+    [WeiboSDK sendRequest:request];
+}
+
++ (void)getTokenAndOpenIDCompletion:(GetTokenAndOpenIDCompletionBlock)completion {
+    SRWBManager *manager = [SRWBManager manager];
+    manager.authSuccess = nil;
+    manager.authError = nil;
+    manager.loginSuccess = nil;
+    manager.loginError = nil;
+    manager.getTokenAndOpenIDCompletionBlock = completion;
+    WBAuthorizeRequest *request = [WBAuthorizeRequest request];
+    request.redirectURI = WB_RedirectURI;
     request.scope = @"all";
     [WeiboSDK sendRequest:request];
 }
@@ -87,10 +95,12 @@
 - (void)didReceiveWeiboRequest:(WBBaseRequest *)request { }
 
 - (void)didReceiveWeiboResponse:(WBBaseResponse *)response {
-    
     if ([response isKindOfClass:WBAuthorizeResponse.class]) {
         if (response.statusCode == WeiboSDKResponseStatusCodeSuccess) {
             WBAuthorizeResponse *resp = (WBAuthorizeResponse *)response;
+            if (self.getTokenAndOpenIDCompletionBlock) {
+                self.getTokenAndOpenIDCompletionBlock(nil, resp.accessToken, resp.userID);
+            }
             if (self.authSuccess) {
                 self.authSuccess(resp.userID, nil);
             }
@@ -110,7 +120,6 @@
 }
 
 - (void)loginRequest:(WBAuthorizeResponse *)resp {
-    
     [WBHttpRequest requestForUserProfile:resp.userID
                          withAccessToken:resp.accessToken
                       andOtherProperties:nil

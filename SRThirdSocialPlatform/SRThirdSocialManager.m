@@ -14,15 +14,12 @@
 @implementation SRThirdSocialManager
 
 + (void)registerApp {
-    
     [SRWXManager registerApp];
     [SRWBManager registerApp];
 }
 
 + (BOOL)isAppInstalled:(SRThirdSocialType)thirdSocialType {
-    
     BOOL result = NO;
-    
     switch (thirdSocialType) {
         case SRThirdSocialWX:
         {
@@ -44,7 +41,6 @@
 }
 
 + (void)installeAPP:(SRThirdSocialType)thirdSocialType {
-    
     switch (thirdSocialType) {
         case SRThirdSocialWX:
         {
@@ -64,22 +60,20 @@
     }
 }
 
-+ (BOOL)handleOpenURL:(NSURL *)url {
-    
-    if ([SRWXManager handleOpenURL:url]) {
++ (BOOL)handleOpenURL:(NSURL *)aURL {
+    if ([SRWXManager handleOpenURL:aURL]) {
         return YES;
     }
-    if ([SRWBManager handleOpenURL:url]) {
+    if ([SRWBManager handleOpenURL:aURL]) {
         return YES;
     }
-    if ([SRQQManager handleOpenURL:url]) {
+    if ([SRQQManager handleOpenURL:aURL]) {
         return YES;
     }
     return NO;
 }
 
 + (void)authRequest:(SRThirdSocialType)thirdSocialType authSuccess:(SRThirdSocialAuthSuccess)authSuccess authError:(SRThirdSocialAuthError)authError {
-    
     switch (thirdSocialType) {
         case SRThirdSocialWX:
         {
@@ -100,7 +94,6 @@
 }
 
 + (void)loginRequest:(SRThirdSocialType)thirdSocialType loginSuccess:(SRThirdSocialLoginSuccess)loginSuccess loginError:(SRThirdSocialLoginError)loginError {
-    
     switch (thirdSocialType) {
         case SRThirdSocialWX:
         {
