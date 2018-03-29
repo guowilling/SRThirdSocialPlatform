@@ -17,13 +17,27 @@
 ## APIs
 
 ````objc
+typedef NS_OPTIONS (NSInteger, SRThirdSocialType) {
+    SRThirdSocialWX = 1 << 0,
+    SRThirdSocialWB = 1 << 1,
+    SRThirdSocialQQ = 1 << 2,
+};
+
+typedef void (^SRThirdSocialAuthSuccess)(NSString *openID, NSString *unionID);
+typedef void (^SRThirdSocialAuthError)(NSError *error);
+
+typedef void (^SRThirdSocialLoginSuccess)(NSString *openID, NSString *unionID, NSString *userNickname, NSString *userAvatarURL);
+typedef void (^SRThirdSocialLoginError)(NSError *error);
+
+@interface SRThirdSocialManager : NSObject
+
 + (void)registerApp;
 
 + (BOOL)isAppInstalled:(SRThirdSocialType)thirdSocialType;
 
 + (void)installeAPP:(SRThirdSocialType)thirdSocialType;
 
-+ (BOOL)handleOpenURL:(NSURL *)url;
++ (BOOL)handleOpenURL:(NSURL *)aURL;
 
 + (void)authRequest:(SRThirdSocialType)thirdSocialType authSuccess:(SRThirdSocialAuthSuccess)authSuccess authError:(SRThirdSocialAuthError)authError;
 
@@ -44,12 +58,10 @@
 
 ````objc
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
-    
     return [SRThirdSocialManager handleOpenURL:url]; // handleOpenURL
 }
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
-    
     return [SRThirdSocialManager handleOpenURL:url]; // handleOpenURL
 }
 ````
@@ -59,9 +71,9 @@
 if ([SRThirdSocialManager isAppInstalled:SRThirdSocialWX]) {
     [SRThirdSocialManager authRequest:SRThirdSocialWX
                           authSuccess:^(NSString *openID, NSString *unionID) {
-                              // Your code
+                              // your code
                           } authError:^(NSError *error) {
-                              // Your code
+                              // your code
                           }];
 }
     
@@ -69,9 +81,9 @@ if ([SRThirdSocialManager isAppInstalled:SRThirdSocialWX]) {
 if ([SRThirdSocialManager isAppInstalled:SRThirdSocialWX]) {
     [SRThirdSocialManager loginRequest:SRThirdSocialWX
                           loginSuccess:^(NSString *openID, NSString *unionID, NSString *userNickname, NSString *userAvatarURL) {
-                              // Your code
+                              // your code
                           } loginError:^(NSError *error) {
-                              // Your code
+                              // your code
                           }];
 }
 ````
@@ -81,9 +93,9 @@ if ([SRThirdSocialManager isAppInstalled:SRThirdSocialWX]) {
 if ([SRThirdSocialManager isAppInstalled:SRThirdSocialWB]) {
     [SRThirdSocialManager authRequest:SRThirdSocialWB
                           authSuccess:^(NSString *openID, NSString *unionID) {
-                              // Your code
+                              // your code
                           } authError:^(NSError *error) {
-                              // Your code
+                              // your code
                           }];
 }
     
@@ -91,9 +103,9 @@ if ([SRThirdSocialManager isAppInstalled:SRThirdSocialWB]) {
 if ([SRThirdSocialManager isAppInstalled:SRThirdSocialWB]) {
     [SRThirdSocialManager loginRequest:SRThirdSocialWB
                           loginSuccess:^(NSString *openID, NSString *unionID, NSString *userNickname, NSString *userAvatarURL) {
-                              // Your code
+                              // your code
                           } loginError:^(NSError *error) {
-                              // Your code
+                              // your code
                           }];
 }
 ````
@@ -103,9 +115,9 @@ if ([SRThirdSocialManager isAppInstalled:SRThirdSocialWB]) {
 if ([SRThirdSocialManager isAppInstalled:SRThirdSocialQQ]) {
     [SRThirdSocialManager authRequest:SRThirdSocialQQ
                           authSuccess:^(NSString *openID, NSString *unionID) {
-                              // Your code
+                              // your code
                           } authError:^(NSError *error) {
-                              // Your code
+                              // your code
                           }];
 }
     
@@ -113,9 +125,9 @@ if ([SRThirdSocialManager isAppInstalled:SRThirdSocialQQ]) {
 if ([SRThirdSocialManager isAppInstalled:SRThirdSocialQQ]) {
     [SRThirdSocialManager loginRequest:SRThirdSocialQQ
                           loginSuccess:^(NSString *openID, NSString *unionID, NSString *userNickname, NSString *userAvatarURL) {
-                              // Your code
+                              // your code
                           } loginError:^(NSError *error) {
-                              // Your code
+                              // your code
                           }];
 }
 ````
