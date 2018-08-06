@@ -17,10 +17,10 @@
 @property (nonatomic, strong) TencentOAuth *tencentOAuth;
 
 @property (nonatomic, copy) SRThirdSocialAuthSuccess authSuccess;
-@property (nonatomic, copy) SRThirdSocialAuthError   authError;
+@property (nonatomic, copy) SRThirdSocialAuthFailure authFailure;
 
 @property (nonatomic, copy) SRThirdSocialLoginSuccess loginSuccess;
-@property (nonatomic, copy) SRThirdSocialLoginError   loginError;
+@property (nonatomic, copy) SRThirdSocialLoginFailure loginFailure;
 
 @property (nonatomic, copy) GetTokenAndOpenIDCompletionBlock getTokenAndOpenIDCompletionBlock;
 
@@ -62,22 +62,22 @@
     return [TencentOAuth HandleOpenURL:aURL];
 }
 
-+ (void)authRequestWithAuthSuccess:(SRThirdSocialAuthSuccess)authSuccess authError:(SRThirdSocialAuthError)authError {
++ (void)authRequestSuccess:(SRThirdSocialAuthSuccess)success failure:(SRThirdSocialAuthFailure)failure {
     SRQQManager *manager = [SRQQManager manager];
-    manager.authSuccess = authSuccess;
-    manager.authError = authError;
+    manager.authSuccess = success;
+    manager.authFailure = failure;
     manager.loginSuccess = nil;
-    manager.loginError = nil;
+    manager.loginFailure = nil;
     manager.getTokenAndOpenIDCompletionBlock = nil;
     [manager.tencentOAuth authorize:@[kOPEN_PERMISSION_GET_SIMPLE_USER_INFO]];
 }
 
-+ (void)loginRequestWithLoginSuccess:(SRThirdSocialLoginSuccess)loginSuccess loginError:(SRThirdSocialLoginError)loginError {
++ (void)loginRequestSuccess:(SRThirdSocialLoginSuccess)success failure:(SRThirdSocialLoginFailure)failure {
     SRQQManager *manager = [SRQQManager manager];
     manager.authSuccess = nil;
-    manager.authError = nil;
-    manager.loginSuccess = loginSuccess;
-    manager.loginError = loginError;
+    manager.authFailure = nil;
+    manager.loginSuccess = success;
+    manager.loginFailure = failure;
     manager.getTokenAndOpenIDCompletionBlock = nil;
     [manager.tencentOAuth authorize:@[kOPEN_PERMISSION_GET_SIMPLE_USER_INFO]];
 }
@@ -85,9 +85,9 @@
 + (void)getTokenAndOpenIDCompletion:(GetTokenAndOpenIDCompletionBlock)completion {
     SRQQManager *manager = [SRQQManager manager];
     manager.authSuccess = nil;
-    manager.authError = nil;
+    manager.authFailure = nil;
     manager.loginSuccess = nil;
-    manager.loginError = nil;
+    manager.loginFailure = nil;
     manager.getTokenAndOpenIDCompletionBlock = completion;
     [manager.tencentOAuth authorize:@[kOPEN_PERMISSION_GET_SIMPLE_USER_INFO]];
 }
@@ -104,27 +104,27 @@
         }
         [self.tencentOAuth getUserInfo];
     } else {
-        if (self.authError) {
-            self.authError([NSError errorWithDomain:@"QQ 登录失败" code:-1 userInfo:nil]);
+        if (self.authFailure) {
+            self.authFailure([NSError errorWithDomain:@"QQ 登录失败" code:-1 userInfo:nil]);
         }
     }
 }
 
 - (void)tencentDidNotLogin:(BOOL)cancelled {
     if (cancelled) {
-        if (self.authError) {
-            self.authError([NSError errorWithDomain:@"用户取消 QQ 登录" code:-1 userInfo:nil]);
+        if (self.authFailure) {
+            self.authFailure([NSError errorWithDomain:@"用户取消 QQ 登录" code:-1 userInfo:nil]);
         }
     } else {
-        if (self.authError) {
-            self.authError([NSError errorWithDomain:@"QQ 登录失败" code:-1 userInfo:nil]);
+        if (self.authFailure) {
+            self.authFailure([NSError errorWithDomain:@"QQ 登录失败" code:-1 userInfo:nil]);
         }
     }
 }
 
 - (void)tencentDidNotNetWork {
-    if (self.authError) {
-        self.authError([NSError errorWithDomain:@"QQ 登录网络错误" code:-1 userInfo:nil]);
+    if (self.authFailure) {
+        self.authFailure([NSError errorWithDomain:@"QQ 登录网络错误" code:-1 userInfo:nil]);
     }
 }
 
@@ -136,8 +136,8 @@
             self.loginSuccess(self.tencentOAuth.openId, nil, nickname, avatarURL);
         }
     } else {
-        if (self.loginError) {
-            self.loginError([NSError errorWithDomain:@"QQ 登录异常" code:-1 userInfo:nil]);
+        if (self.loginFailure) {
+            self.loginFailure([NSError errorWithDomain:@"QQ 登录异常" code:-1 userInfo:nil]);
         }
     }
 }

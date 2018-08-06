@@ -32,9 +32,9 @@ typedef void (^GetTokenAndOpenIDCompletionBlock)(NSError *error, NSString *token
 
 + (BOOL)handleOpenURL:(NSURL *)aURL;
 
-+ (void)authRequestWithAuthSuccess:(SRThirdSocialAuthSuccess)authSuccess authError:(SRThirdSocialAuthError)authError;
++ (void)authRequestSuccess:(SRThirdSocialAuthSuccess)success failure:(SRThirdSocialAuthFailure)failure;
 
-+ (void)loginRequestWithLoginSuccess:(SRThirdSocialLoginSuccess)loginSuccess loginError:(SRThirdSocialLoginError)loginError;
++ (void)loginRequestSuccess:(SRThirdSocialLoginSuccess)success failure:(SRThirdSocialLoginFailure)failure;
 
 + (void)getTokenAndOpenIDCompletion:(GetTokenAndOpenIDCompletionBlock)completion;
 

@@ -73,41 +73,41 @@
     return NO;
 }
 
-+ (void)authRequest:(SRThirdSocialType)thirdSocialType authSuccess:(SRThirdSocialAuthSuccess)authSuccess authError:(SRThirdSocialAuthError)authError {
-    switch (thirdSocialType) {
++ (void)authRequest:(SRThirdSocialType)type success:(SRThirdSocialAuthSuccess)success failure:(SRThirdSocialAuthFailure)failure {
+    switch (type) {
         case SRThirdSocialWX:
         {
-            [SRWXManager authRequestWithAuthSuccess:authSuccess authError:authError];
+            [SRWXManager authRequestSuccess:success failure:failure];
             break;
         }
         case SRThirdSocialWB:
         {
-            [SRWBManager authRequestWithAuthSuccess:authSuccess authError:authError];
+            [SRWBManager authRequestSuccess:success failure:failure];
             break;
         }
         case SRThirdSocialQQ:
         {
-            [SRQQManager authRequestWithAuthSuccess:authSuccess authError:authError];
+            [SRQQManager authRequestSuccess:success failure:failure];
             break;
         }
     }
 }
 
-+ (void)loginRequest:(SRThirdSocialType)thirdSocialType loginSuccess:(SRThirdSocialLoginSuccess)loginSuccess loginError:(SRThirdSocialLoginError)loginError {
-    switch (thirdSocialType) {
++ (void)loginRequest:(SRThirdSocialType)type success:(SRThirdSocialLoginSuccess)success failure:(SRThirdSocialLoginFailure)failure {
+    switch (type) {
         case SRThirdSocialWX:
         {
-            [SRWXManager loginRequestWithLoginSuccess:loginSuccess loginError:loginError];
+            [SRWXManager loginRequestSuccess:success failure:failure];
             break;
         }
         case SRThirdSocialWB:
         {
-            [SRWBManager loginRequestWithLoginSuccess:loginSuccess loginError:loginError];
+            [SRWBManager loginRequestSuccess:success failure:failure];
             break;
         }
         case SRThirdSocialQQ:
         {
-            [SRQQManager loginRequestWithLoginSuccess:loginSuccess loginError:loginError];
+            [SRQQManager loginRequestSuccess:success failure:failure];
             break;
         }
     }

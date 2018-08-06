@@ -94,17 +94,17 @@
             {
                 if ([SRThirdSocialManager isAppInstalled:SRThirdSocialQQ]) {
                     [SRThirdSocialManager authRequest:SRThirdSocialQQ
-                                   authSuccess:^(NSString *openID, NSString *unionID) {
-                                       self.error = nil;
-                                       self.openID = openID;
-                                       self.unionID = unionID;
-                                       [self.tableView reloadData];
-                                   } authError:^(NSError *error) {
-                                       self.error = error.domain;
-                                       self.openID = nil;
-                                       self.unionID = nil;
-                                       [self.tableView reloadData];
-                                   }];
+                                              success:^(NSString *openID, NSString *unionID) {
+                                                  self.error = nil;
+                                                  self.openID = openID;
+                                                  self.unionID = unionID;
+                                                  [self.tableView reloadData];
+                                              } failure:^(NSError *error) {
+                                                  self.error = error.domain;
+                                                  self.openID = nil;
+                                                  self.unionID = nil;
+                                                  [self.tableView reloadData];
+                                              }];
                 }
                 break;
             }
@@ -112,21 +112,21 @@
             {
                 if ([SRThirdSocialManager isAppInstalled:SRThirdSocialQQ]) {
                     [SRThirdSocialManager loginRequest:SRThirdSocialQQ
-                                   loginSuccess:^(NSString *openID, NSString *unionID, NSString *userNickname, NSString *userAvatarURL) {
-                                       self.error = nil;
-                                       self.openID = openID;
-                                       self.unionID = unionID;
-                                       self.nickname = userNickname;
-                                       self.avatarURL = userAvatarURL;
-                                       [self.tableView reloadData];
-                                   } loginError:^(NSError *error) {
-                                       self.error = error.domain;
-                                       self.openID = nil;
-                                       self.unionID = nil;
-                                       self.nickname = nil;
-                                       self.avatarURL = nil;
-                                       [self.tableView reloadData];
-                                   }];
+                                               success:^(NSString *openID, NSString *unionID, NSString *userNickname, NSString *userAvatarURL) {
+                                                   self.error = nil;
+                                                   self.openID = openID;
+                                                   self.unionID = unionID;
+                                                   self.nickname = userNickname;
+                                                   self.avatarURL = userAvatarURL;
+                                                   [self.tableView reloadData];
+                                               } failure:^(NSError *error) {
+                                                   self.error = error.domain;
+                                                   self.openID = nil;
+                                                   self.unionID = nil;
+                                                   self.nickname = nil;
+                                                   self.avatarURL = nil;
+                                                   [self.tableView reloadData];
+                                               }];
                 }
                 break;
             }

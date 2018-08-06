@@ -13,10 +13,10 @@
 @interface SRWBManager () <WeiboSDKDelegate>
 
 @property (nonatomic, copy) SRThirdSocialAuthSuccess authSuccess;
-@property (nonatomic, copy) SRThirdSocialAuthError   authError;
+@property (nonatomic, copy) SRThirdSocialAuthFailure authFailure;
 
 @property (nonatomic, copy) SRThirdSocialLoginSuccess loginSuccess;
-@property (nonatomic, copy) SRThirdSocialLoginError   loginError;
+@property (nonatomic, copy) SRThirdSocialLoginFailure loginFailure;
 
 @property (nonatomic, copy) GetTokenAndOpenIDCompletionBlock getTokenAndOpenIDCompletionBlock;
 
@@ -51,12 +51,12 @@
     return manager;
 }
 
-+ (void)authRequestWithAuthSuccess:(SRThirdSocialAuthSuccess)authSuccess authError:(SRThirdSocialAuthError)authError {
++ (void)authRequestSuccess:(SRThirdSocialAuthSuccess)success failure:(SRThirdSocialAuthFailure)failure {
     SRWBManager *manager = [SRWBManager manager];
-    manager.authSuccess = authSuccess;
-    manager.authError = authError;
+    manager.authSuccess = success;
+    manager.authFailure = failure;
     manager.loginSuccess = nil;
-    manager.loginError = nil;
+    manager.loginFailure = nil;
     manager.getTokenAndOpenIDCompletionBlock = nil;
     WBAuthorizeRequest *request = [WBAuthorizeRequest request];
     request.redirectURI = WB_RedirectURI;
@@ -64,12 +64,12 @@
     [WeiboSDK sendRequest:request];
 }
 
-+ (void)loginRequestWithLoginSuccess:(SRThirdSocialLoginSuccess)loginSuccess loginError:(SRThirdSocialLoginError)loginError {
++ (void)loginRequestSuccess:(SRThirdSocialLoginSuccess)success failure:(SRThirdSocialLoginFailure)failure {
     SRWBManager *manager = [SRWBManager manager];
     manager.authSuccess = nil;
-    manager.authError = nil;
-    manager.loginSuccess = loginSuccess;
-    manager.loginError = loginError;
+    manager.authFailure = nil;
+    manager.loginSuccess = success;
+    manager.loginFailure = failure;
     manager.getTokenAndOpenIDCompletionBlock = nil;
     WBAuthorizeRequest *request = [WBAuthorizeRequest request];
     request.redirectURI = WB_RedirectURI;
@@ -80,9 +80,9 @@
 + (void)getTokenAndOpenIDCompletion:(GetTokenAndOpenIDCompletionBlock)completion {
     SRWBManager *manager = [SRWBManager manager];
     manager.authSuccess = nil;
-    manager.authError = nil;
+    manager.authFailure = nil;
     manager.loginSuccess = nil;
-    manager.loginError = nil;
+    manager.loginFailure = nil;
     manager.getTokenAndOpenIDCompletionBlock = completion;
     WBAuthorizeRequest *request = [WBAuthorizeRequest request];
     request.redirectURI = WB_RedirectURI;
@@ -106,13 +106,13 @@
             }
             [self loginRequest:resp];
         } else {
-            if (self.authError) {
+            if (self.authFailure) {
                 if (response.statusCode == WeiboSDKResponseStatusCodeAuthDeny) {
-                    self.authError([NSError errorWithDomain:@"用户拒绝微博授权" code:response.statusCode userInfo:nil]);
+                    self.authFailure([NSError errorWithDomain:@"用户拒绝微博授权" code:response.statusCode userInfo:nil]);
                 } else if (response.statusCode == WeiboSDKResponseStatusCodeUserCancel) {
-                    self.authError([NSError errorWithDomain:@"用户取消微博授权" code:response.statusCode userInfo:nil]);
+                    self.authFailure([NSError errorWithDomain:@"用户取消微博授权" code:response.statusCode userInfo:nil]);
                 } else {
-                    self.authError([NSError errorWithDomain:@"微博授权失败" code:response.statusCode userInfo:nil]);
+                    self.authFailure([NSError errorWithDomain:@"微博授权失败" code:response.statusCode userInfo:nil]);
                 }
             }
         }
@@ -134,8 +134,8 @@
                                self.loginSuccess(userID, nil, nickname, avatarURL);
                            }
                        } else {
-                           if (self.loginError) {
-                               self.loginError(error);
+                           if (self.loginFailure) {
+                               self.loginFailure(error);
                            }
                        }
                    }];

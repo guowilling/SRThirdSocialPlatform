@@ -28,9 +28,9 @@ typedef void (^GetCodeCompletionBlock)(NSError *error, NSString *code);
 
 + (BOOL)handleOpenURL:(NSURL *)aURL;
 
-+ (void)authRequestWithAuthSuccess:(SRThirdSocialAuthSuccess)authSuccess authError:(SRThirdSocialAuthError)authError;
++ (void)authRequestSuccess:(SRThirdSocialAuthSuccess)success failure:(SRThirdSocialAuthFailure)failure;
 
-+ (void)loginRequestWithLoginSuccess:(SRThirdSocialLoginSuccess)loginSuccess loginError:(SRThirdSocialLoginError)loginError;
++ (void)loginRequestSuccess:(SRThirdSocialLoginSuccess)success failure:(SRThirdSocialLoginFailure)failure;
 
 + (void)getCodeCompletion:(GetCodeCompletionBlock)completion;
 

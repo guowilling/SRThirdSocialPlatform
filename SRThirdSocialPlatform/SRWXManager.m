@@ -13,10 +13,10 @@
 @interface SRWXManager () <WXApiDelegate>
 
 @property (nonatomic, copy) SRThirdSocialAuthSuccess authSuccess;
-@property (nonatomic, copy) SRThirdSocialAuthError   authError;
+@property (nonatomic, copy) SRThirdSocialAuthFailure authFailure;
 
 @property (nonatomic, copy) SRThirdSocialLoginSuccess loginSuccess;
-@property (nonatomic, copy) SRThirdSocialLoginError   loginError;
+@property (nonatomic, copy) SRThirdSocialLoginFailure loginFailure;
 
 @property (nonatomic, copy) GetCodeCompletionBlock getCodeCompletionBlock;
 
@@ -51,12 +51,12 @@
     return manager;
 }
 
-+ (void)authRequestWithAuthSuccess:(SRThirdSocialAuthSuccess)authSuccess authError:(SRThirdSocialAuthError)authError {
++ (void)authRequestSuccess:(SRThirdSocialAuthSuccess)success failure:(SRThirdSocialAuthFailure)failure {
     SRWXManager *manager = [SRWXManager manager];
-    manager.authSuccess = authSuccess;
-    manager.authError = authError;
+    manager.authSuccess = success;
+    manager.authFailure = failure;
     manager.loginSuccess = nil;
-    manager.loginError = nil;
+    manager.loginFailure = nil;
     manager.getCodeCompletionBlock = nil;
     SendAuthReq *sendAuthReq = [[SendAuthReq alloc] init];
     sendAuthReq.scope = @"snsapi_userinfo";
@@ -64,12 +64,12 @@
     [WXApi sendAuthReq:sendAuthReq viewController:nil delegate:[SRWXManager manager]];
 }
 
-+ (void)loginRequestWithLoginSuccess:(SRThirdSocialLoginSuccess)loginSuccess loginError:(SRThirdSocialLoginError)loginError {
++ (void)loginRequestSuccess:(SRThirdSocialLoginSuccess)success failure:(SRThirdSocialLoginFailure)failure {
     SRWXManager *manager = [SRWXManager manager];
     manager.authSuccess = nil;
-    manager.authError = nil;
-    manager.loginSuccess = loginSuccess;
-    manager.loginError = loginError;
+    manager.authFailure = nil;
+    manager.loginSuccess = success;
+    manager.loginFailure = failure;
     manager.getCodeCompletionBlock = nil;
     SendAuthReq *sendAuthReq = [[SendAuthReq alloc] init];
     sendAuthReq.scope = @"snsapi_userinfo";
@@ -80,9 +80,9 @@
 + (void)getCodeCompletion:(GetCodeCompletionBlock)completion {
     SRWXManager *manager = [SRWXManager manager];
     manager.authSuccess = nil;
-    manager.authError = nil;
+    manager.authFailure = nil;
     manager.loginSuccess = nil;
-    manager.loginError = nil;
+    manager.loginFailure = nil;
     manager.getCodeCompletionBlock = completion;
     SendAuthReq *sendAuthReq = [[SendAuthReq alloc] init];
     sendAuthReq.scope = @"snsapi_userinfo";
@@ -104,13 +104,13 @@
                 [self getOpenIDWithCode:authResp.code];
             }
         } else {
-            if (self.authError) {
+            if (self.authFailure) {
                 if (resp.errCode == WXErrCodeAuthDeny) {
-                    self.authError([NSError errorWithDomain:@"微信用户拒绝授权" code:resp.errCode userInfo:nil]);
+                    self.authFailure([NSError errorWithDomain:@"微信用户拒绝授权" code:resp.errCode userInfo:nil]);
                 } else if (resp.errCode == WXErrCodeUserCancel) {
-                    self.authError([NSError errorWithDomain:@"微信用户取消授权" code:resp.errCode userInfo:nil]);
+                    self.authFailure([NSError errorWithDomain:@"微信用户取消授权" code:resp.errCode userInfo:nil]);
                 } else {
-                    self.authError([NSError errorWithDomain:@"微信用户授权失败" code:resp.errCode userInfo:nil]);
+                    self.authFailure([NSError errorWithDomain:@"微信用户授权失败" code:resp.errCode userInfo:nil]);
                 }
             }
         }
@@ -125,8 +125,8 @@
                                         completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
                                             dispatch_async(dispatch_get_main_queue(), ^{
                                                 if (error) {
-                                                    if (self.authError) {
-                                                        self.authError(error);
+                                                    if (self.authFailure) {
+                                                        self.authFailure(error);
                                                         return;
                                                     }
                                                 }
@@ -148,12 +148,12 @@
                                         completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
                                             dispatch_async(dispatch_get_main_queue(), ^{
                                                 if (error) {
-                                                    if (self.authError) {
-                                                        self.authError(error);
+                                                    if (self.authFailure) {
+                                                        self.authFailure(error);
                                                         return;
                                                     }
-                                                    if (self.loginError) {
-                                                        self.loginError(error);
+                                                    if (self.loginFailure) {
+                                                        self.loginFailure(error);
                                                         return;
                                                     }
                                                 }
@@ -180,8 +180,8 @@
     if (responseObject[@"errcode"]) {
         NSString *errmsg = responseObject[@"errmsg"];
         NSInteger errcode = [responseObject[@"errcode"] integerValue];
-        if (self.authError) {
-            self.authError([NSError errorWithDomain:errmsg code:errcode userInfo:nil]);
+        if (self.authFailure) {
+            self.authFailure([NSError errorWithDomain:errmsg code:errcode userInfo:nil]);
         }
         return YES;
     }

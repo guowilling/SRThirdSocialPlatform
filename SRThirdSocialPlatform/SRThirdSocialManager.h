@@ -23,17 +23,17 @@
 #define QQ_APPID       @"1104784464"
 #define QQ_APPKEY      @"2ejPhOgTmjIQqkDC"
 
-typedef NS_OPTIONS (NSInteger, SRThirdSocialType) {
-    SRThirdSocialWX = 1 << 0,
-    SRThirdSocialWB = 1 << 1,
-    SRThirdSocialQQ = 1 << 2,
+typedef NS_ENUM (NSInteger, SRThirdSocialType) {
+    SRThirdSocialWX,
+    SRThirdSocialWB,
+    SRThirdSocialQQ
 };
 
 typedef void (^SRThirdSocialAuthSuccess)(NSString *openID, NSString *unionID);
-typedef void (^SRThirdSocialAuthError)(NSError *error);
+typedef void (^SRThirdSocialAuthFailure)(NSError *error);
 
 typedef void (^SRThirdSocialLoginSuccess)(NSString *openID, NSString *unionID, NSString *userNickname, NSString *userAvatarURL);
-typedef void (^SRThirdSocialLoginError)(NSError *error);
+typedef void (^SRThirdSocialLoginFailure)(NSError *error);
 
 @interface SRThirdSocialManager : NSObject
 
@@ -45,8 +45,8 @@ typedef void (^SRThirdSocialLoginError)(NSError *error);
 
 + (BOOL)handleOpenURL:(NSURL *)aURL;
 
-+ (void)authRequest:(SRThirdSocialType)thirdSocialType authSuccess:(SRThirdSocialAuthSuccess)authSuccess authError:(SRThirdSocialAuthError)authError;
++ (void)authRequest:(SRThirdSocialType)type success:(SRThirdSocialAuthSuccess)success failure:(SRThirdSocialAuthFailure)failure;
 
-+ (void)loginRequest:(SRThirdSocialType)thirdSocialType loginSuccess:(SRThirdSocialLoginSuccess)loginSuccess loginError:(SRThirdSocialLoginError)loginError;
++ (void)loginRequest:(SRThirdSocialType)type success:(SRThirdSocialLoginSuccess)success failure:(SRThirdSocialLoginFailure)failure;
 
 @end
